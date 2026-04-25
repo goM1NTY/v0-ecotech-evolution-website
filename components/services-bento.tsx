@@ -12,7 +12,7 @@ const services = [
     description: "Premium photovoltaic panels for residential and commercial properties. Generate clean electricity and reduce your energy bills by up to 80%.",
     features: ["Grid-tied systems", "Battery storage"],
     image: "/services/solar.png",
-    className: "lg:col-span-2 lg:row-span-2",
+    className: "md:col-span-1 md:row-span-2 lg:col-span-1 lg:row-span-2",
   },
   {
     id: "heatpump",
@@ -21,7 +21,7 @@ const services = [
     description: "Cut heating costs by 70% with modern technology.",
     features: ["Air-to-water", "Geothermal"],
     image: "/services/heatpump.png",
-    className: "lg:col-span-1 lg:row-span-1",
+    className: "md:col-span-1 md:row-span-1 lg:col-span-2 lg:row-span-1",
   },
   {
     id: "ac",
@@ -30,16 +30,16 @@ const services = [
     description: "Year-round climate control with ultra-quiet multi-zone systems.",
     features: ["Multi-zone", "Smart controls"],
     image: "/services/ac.png",
-    className: "lg:col-span-1 lg:row-span-1",
+    className: "md:col-span-1 md:row-span-1 lg:col-span-2 lg:row-span-1",
   },
   {
     id: "industrial",
     icon: Factory,
-    title: "Industrial & Commercial Solutions",
-    description: "Large-scale renewable energy installations for factories and commercial buildings.",
-    features: ["Custom design", "200kW+ Capacity", "Maintenance"],
+    title: "Heating and Cooling",
+    description: "Complete commercial and residential temperature control systems ensuring perfect climate in any season.",
+    features: ["Custom design", "HVAC Integration", "Maintenance"],
     image: "/services/industrial.png",
-    className: "lg:col-span-3 lg:row-span-1",
+    className: "md:col-span-1 md:row-span-2 lg:col-span-1 lg:row-span-2",
   },
 ]
 
@@ -67,7 +67,7 @@ export function ServicesBento() {
         </motion.div>
 
         {/* Bento Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[340px] gap-6">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[340px] md:grid-flow-dense gap-6">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
