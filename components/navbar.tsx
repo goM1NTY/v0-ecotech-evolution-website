@@ -5,7 +5,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { href: "#services", label: "Services" },
@@ -66,13 +65,13 @@ export function Navbar() {
         </div>
 
         {/* Partner Logo right side */}
-        <div className={`hidden md:flex backdrop-blur-md px-3 py-1.5 rounded items-center justify-center transition-all duration-500 ease-in-out ${scrolled ? '' : 'bg-white/10'}`}>
-          <Image 
-            src="/daikin-partner.png" 
-            alt="Daikin Partner" 
-            width={160} 
-            height={60} 
-            className={`object-contain transition-all duration-500 ease-in-out mix-blend-normal ${scrolled ? 'h-8' : 'h-12'} w-auto`}
+        <div className={`hidden md:flex items-center justify-center rounded px-3 py-2 backdrop-blur-md transition-all duration-500 ease-in-out ${scrolled ? '' : 'bg-white/90 shadow-sm'}`}>
+          <Image
+            src="/images/daikin-partner.svg"
+            alt="Daikin Premium Partner"
+            width={184}
+            height={24}
+            className={`w-auto object-contain transition-all duration-500 ease-in-out ${scrolled ? 'h-6' : 'h-7'}`}
             priority
           />
         </div>

@@ -1,0 +1,15 @@
+<svg width="245" height="32" viewBox="0 0 245 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Daikin Partner</title>
+  <desc id="desc">Daikin partner logo on a transparent background</desc>
+  <path d="M0 4H29L0 28V4Z" fill="#111111"/>
+  <path d="M9 4H38L9 28V4Z" fill="#111111"/>
+  <path d="M45 23L53 8H62C68 8 71.5 10.8 71.5 15.1C71.5 20.1 67.4 23 61 23H45ZM55.7 18.9H61.2C64.3 18.9 66 17.6 66 15.3C66 13.4 64.4 12.2 61.8 12.2H58.9L55.7 18.9Z" fill="#111111"/>
+  <path d="M70.8 23L82.7 8H88.8L91.2 23H85.8L85.5 20.4H78.3L76.3 23H70.8ZM80.9 16.9H85L84.5 12.3L80.9 16.9Z" fill="#111111"/>
+  <path d="M94 23L101.1 8H106.5L99.4 23H94Z" fill="#111111"/>
+  <path d="M105.5 23L112.6 8H118L115.3 13.7L124.4 8H131.7L120.7 14.7L126.6 23H120L116.3 17.5L112.7 19.6L111.1 23H105.5Z" fill="#111111"/>
+  <path d="M128.1 23L135.2 8H140.6L133.5 23H128.1Z" fill="#111111"/>
+  <path d="M139.7 23L146.8 8H151.9L156.4 16.3L160.3 8H165.7L158.6 23H153.8L149.1 14.3L145 23H139.7Z" fill="#111111"/>
+  <path d="M177 8V24" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="187" y="14" fill="#111111" font-family="Arial, Helvetica, sans-serif" font-size="6" font-weight="700" letter-spacing="1.1">PREMIUM</text>
+  <text x="187" y="23" fill="#111111" font-family="Arial, Helvetica, sans-serif" font-size="6" font-weight="700" letter-spacing="1.1">PARTNER</text>
+</svg>
