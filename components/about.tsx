@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Shield, Award, Clock, MapPin } from "lucide-react"
 
 const features = [
@@ -38,18 +39,15 @@ export function About() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-[4/5] rounded-2xl bg-gray-100 overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-16 h-16 mx-auto rounded-full bg-gray-200 flex items-center justify-center">
-                    <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                  </div>
-                  <p className="mt-4 text-gray-500 font-medium">Team Photo</p>
-                  <p className="mt-1 text-sm text-gray-400">Your team or installation work</p>
-                </div>
-              </div>
+            <div className="relative aspect-[4/5] rounded-[2rem] bg-gray-100 overflow-hidden shadow-xl shadow-gray-200/50 border border-gray-100/50">
+              <Image 
+                src="/team.png"
+                alt="EcoTech Evolution Team"
+                fill
+                className="object-cover transition-transform duration-[1.5s] hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-black/5" />
             </div>
             {/* Accent element */}
             <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-[#7CB342]/10 rounded-2xl -z-10" />

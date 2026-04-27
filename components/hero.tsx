@@ -7,7 +7,7 @@ import Image from "next/image"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20">
+    <section className="relative min-h-[100dvh] flex flex-col pt-24 lg:pt-0 overflow-hidden">
       {/* Background Image Setup */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -21,8 +21,11 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 lg:px-12 flex flex-col justify-center h-full pt-10 pb-32">
-        <div className="max-w-3xl">
+      {/* Main Structural Container - Uses flex-1 to take full remaining height */}
+      <div className="container relative z-10 mx-auto px-6 lg:px-12 flex-1 flex flex-col">
+        
+        {/* Centered Text Area - Flex-1 perfectly centers everything inside it */}
+        <div className="flex-1 flex flex-col justify-center max-w-3xl pb-8 lg:pb-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -33,7 +36,7 @@ export function Hero() {
               Renewable Energy Solutions
             </span>
             
-            <h1 className="mt-2 text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight drop-shadow-md">
+            <h1 className="mt-2 text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight drop-shadow-md">
               Clean Energy
               <br />
               <span className="text-[#84CC16]">For Your Future</span>
@@ -44,10 +47,10 @@ export function Hero() {
               Designed and installed by certified experts in Macedonia.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap gap-4 relative z-20">
               <Button
                 size="lg"
-                className="bg-[#7CB342] hover:bg-[#689F38] text-white rounded-md h-12 px-8 text-base font-semibold shadow-lg"
+                className="bg-[#7CB342] hover:bg-[#689F38] text-white rounded-md h-12 px-8 text-base font-semibold shadow-lg relative z-20"
                 asChild
               >
                 <a href="#services">
@@ -69,43 +72,43 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Stats - bottom left */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="absolute bottom-12 left-6 lg:left-12 flex flex-wrap gap-x-12 gap-y-6"
-        >
-          <div className="flex items-center gap-3">
-             <div className="text-white">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="9" x2="9" y1="3" y2="21"/><line x1="15" x2="15" y1="3" y2="21"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="3" x2="21" y1="15" y2="15"/></svg>
-             </div>
-            <div>
-              <p className="text-2xl font-bold text-[#84CC16]">29+</p>
-              <p className="text-sm text-zinc-300 font-medium">Projects Completed</p>
+        {/* Stats Footer - Naturally pinned to bottom without buggy absolutes */}
+        <div className="pb-12 pt-4 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-row flex-wrap items-center gap-6 sm:gap-x-12"
+          >
+            <div className="flex items-center gap-3">
+               <div className="text-white">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="9" x2="9" y1="3" y2="21"/><line x1="15" x2="15" y1="3" y2="21"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="3" x2="21" y1="15" y2="15"/></svg>
+               </div>
+              <div>
+                <p className="text-2xl font-bold text-[#84CC16]">29+</p>
+                <p className="text-sm text-zinc-300 font-medium">Projects Completed</p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center gap-3">
-             <div className="text-white">
-               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-             </div>
-            <div>
-              <p className="text-2xl font-bold text-[#84CC16]">1.2MW</p>
-              <p className="text-sm text-zinc-300 font-medium">Total Installed</p>
+            <div className="flex items-center gap-3">
+               <div className="text-white">
+                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+               </div>
+              <div>
+                <p className="text-2xl font-bold text-[#84CC16]">1.2MW</p>
+                <p className="text-sm text-zinc-300 font-medium">Total Installed</p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center gap-3">
-             <div className="text-white">
-               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-             </div>
-            <div>
-              <p className="text-2xl font-bold text-[#84CC16]">500+</p>
-              <p className="text-sm text-zinc-300 font-medium">Tons CO₂ Saved</p>
+            <div className="flex items-center gap-3">
+               <div className="text-white">
+                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+               </div>
+              <div>
+                <p className="text-2xl font-bold text-[#84CC16]">500+</p>
+                <p className="text-sm text-zinc-300 font-medium">Tons CO₂ Saved</p>
+              </div>
             </div>
-          </div>
-        </motion.div>
-
-
+          </motion.div>
+        </div>
       </div>
 
       {/* WhatsApp Button - floating right */}

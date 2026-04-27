@@ -71,8 +71,29 @@ export function Projects() {
 
   const currentProject = projects[currentIndex]
 
+  // Apple-style variants for super smooth text sliding
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 50 : -50,
+      opacity: 0,
+      scale: 0.98,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 50 : -50,
+      opacity: 0,
+      scale: 0.98,
+    })
+  }
+
   return (
-    <section id="projects" className="py-24 lg:py-32 bg-gray-50 border-t border-gray-100">
+    <section id="projects" className="py-24 lg:py-32 bg-[#FBFBFD] border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Section Header */}
@@ -91,100 +112,120 @@ export function Projects() {
           </h2>
         </motion.div>
 
-        {/* Master Showcase Card */}
-        <div className="relative bg-white rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden">
-          <div className="grid lg:grid-cols-2">
+        {/* Master Showcase Card - The "MacBook Box" */}
+        <div className="relative bg-white rounded-[2rem] shadow-2xl shadow-gray-200/50 border border-gray-100/50 overflow-hidden group hover:shadow-3xl transition-shadow duration-700">
+          <div className="flex flex-col lg:grid lg:grid-cols-5 lg:min-h-[560px]">
             
-            {/* The Image Viewer - Prominent & Unobscured */}
-            <div className="relative aspect-[4/3] lg:aspect-auto lg:h-[600px] w-full bg-gray-100 overflow-hidden">
+            {/* Left: The Image Column (60%) */}
+            <div className="relative w-full h-[55vh] sm:h-[450px] lg:h-auto lg:min-h-full bg-gray-100 overflow-hidden lg:col-span-3">
               <AnimatePresence mode="popLayout" initial={false}>
                 <motion.div
                   key={currentProject.id}
                   initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} // Apple standard spring curve
                   className="absolute inset-0"
                 >
                   <Image
                     src={currentProject.image}
                     alt={currentProject.title}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
                     priority
                   />
-                  {/* Subtle inner ring layer */}
-                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10" />
+                  {/* Inner bevel ring */}
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/5" />
                 </motion.div>
               </AnimatePresence>
               
-              {/* Type Badge Floating on Image */}
-              <div className="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm">
-                <span className="text-sm font-semibold text-gray-900">
+              {/* Type Badge */}
+              <div className="absolute top-6 left-6 z-10 bg-white/80 backdrop-blur-xl px-4 py-1.5 rounded-full shadow-sm border border-white/40">
+                <span className="text-sm font-bold text-[#7CB342] uppercase tracking-wider">
                   {currentProject.type}
                 </span>
               </div>
             </div>
 
-            {/* The Data & Controls Panel */}
-            <div className="flex flex-col justify-center p-10 lg:p-16">
-              <div className="flex items-center justify-between mb-8">
-                <span className="text-sm font-medium text-gray-400 font-mono">
-                  0{currentIndex + 1} / 0{projects.length}
+            {/* Right: The Data & Controls Column (40%) */}
+            <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-12 lg:col-span-2 bg-white relative">
+              
+              {/* Controls Header */}
+              <div className="flex items-center justify-between mb-8 relative z-10">
+                <span className="text-sm font-bold text-gray-400 font-mono tracking-widest">
+                  0{currentIndex + 1} <span className="text-gray-200">/</span> 0{projects.length}
                 </span>
                 
-                {/* Minimalist Controls */}
                 <div className="flex gap-2">
                   <button
                     onClick={prevSlide}
-                    className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:border-[#7CB342] hover:text-[#7CB342] hover:bg-[#7CB342]/5 transition-all"
+                    className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-gray-500 hover:border-[#7CB342] hover:text-[#7CB342] bg-gray-50 hover:bg-[#7CB342]/5 transition-all focus:outline-none focus:ring-2 focus:ring-[#7CB342]/20"
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </button>
                   <button
                     onClick={nextSlide}
-                    className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:border-[#7CB342] hover:text-[#7CB342] hover:bg-[#7CB342]/5 transition-all"
+                    className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-gray-500 hover:border-[#7CB342] hover:text-[#7CB342] bg-gray-50 hover:bg-[#7CB342]/5 transition-all focus:outline-none focus:ring-2 focus:ring-[#7CB342]/20"
                   >
                     <ChevronRight className="w-5 h-5" />
                   </button>
                 </div>
               </div>
 
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentProject.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
-                    {currentProject.title}
-                  </h3>
-
-                  <div className="mt-6 flex flex-wrap gap-4 text-sm font-medium text-gray-600">
-                    <span className="flex items-center bg-gray-50 px-3 py-1 border border-gray-100 rounded-lg">
-                      <MapPin className="w-4 h-4 mr-2 text-[#7CB342]" />
-                      {currentProject.location}
-                    </span>
-                    <span className="flex items-center bg-gray-50 px-3 py-1 border border-gray-100 rounded-lg">
-                      <Zap className="w-4 h-4 mr-2 text-[#7CB342]" />
-                      {currentProject.capacity}
-                    </span>
-                  </div>
-
-                  <p className="mt-8 text-lg text-gray-600 leading-relaxed">
-                    {currentProject.description}
-                  </p>
-
-                  <Button
-                    className="mt-10 bg-[#7CB342] hover:bg-[#689F38] text-white rounded-md h-12 px-8 font-semibold shadow-md"
-                    asChild
+              {/* Data Payload */}
+              <div className="flex-grow flex flex-col justify-center">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentProject.id}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="relative z-10"
                   >
-                    <a href="#contact">Request Similar Integration</a>
-                  </Button>
-                </motion.div>
-              </AnimatePresence>
+                    <h3 className="text-2xl sm:text-4xl font-extrabold text-gray-900 leading-[1.15] tracking-tight">
+                      {currentProject.title}
+                    </h3>
+
+                    {/* Apple Event Style Data Pills */}
+                    <div className="mt-5 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-4">
+                      {/* Power Capacity Pill */}
+                      <div className="bg-[#FBFBFD] rounded-xl sm:rounded-[1.25rem] p-3.5 sm:p-5 border border-gray-100 flex flex-col justify-center transition-all hover:border-[#7CB342]/30">
+                        <span className="flex items-center text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1 sm:mb-2">
+                          <Zap className="w-3.5 h-3.5 mr-1" />
+                          Output
+                        </span>
+                        <span className="text-xl sm:text-2xl font-black text-[#7CB342] tracking-tight">
+                          {currentProject.capacity}
+                        </span>
+                      </div>
+
+                      {/* Location Pill */}
+                      <div className="bg-[#FBFBFD] rounded-xl sm:rounded-[1.25rem] p-3.5 sm:p-5 border border-gray-100 flex flex-col justify-center transition-all hover:border-gray-200">
+                        <span className="flex items-center text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1 sm:mb-2">
+                          <MapPin className="w-3.5 h-3.5 mr-1" />
+                          Location
+                        </span>
+                        <span className="text-lg sm:text-xl font-bold text-gray-900 tracking-tight">
+                          {currentProject.location}
+                        </span>
+                      </div>
+                    </div>
+
+                    <p className="mt-5 sm:mt-8 text-[15px] sm:text-lg text-gray-500 leading-relaxed font-normal">
+                      {currentProject.description}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Footer CTA */}
+              <Button
+                className="mt-8 sm:mt-12 w-full bg-gray-900 hover:bg-[#7CB342] text-white rounded-2xl h-12 sm:h-14 font-bold shadow-lg shadow-gray-200 hover:shadow-[#7CB342]/20 transition-all duration-300 transform"
+                asChild
+              >
+                <a href="#contact">Request Similar Integration</a>
+              </Button>
             </div>
 
           </div>

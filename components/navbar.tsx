@@ -33,7 +33,7 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-sm" : "bg-transparent"
+        scrolled || isOpen ? "bg-white shadow-sm" : "bg-transparent"
       }`}
     >
       <nav className={`container mx-auto flex w-full items-center justify-between px-6 lg:px-12 transition-all duration-500 ease-in-out ${scrolled ? 'h-16' : 'h-24'}`}>
@@ -44,10 +44,11 @@ export function Navbar() {
             alt="EcoTech Evolution Logo" 
             width={72} 
             height={72} 
-            className={`rounded object-cover shadow-sm transition-all duration-500 ease-in-out ${scrolled ? 'w-10 h-10' : 'w-14 h-14'}`} 
+            className={`rounded object-cover shadow-sm transition-all duration-500 ease-in-out ${scrolled ? 'w-10 h-10' : 'w-12 h-12 sm:w-14 sm:h-14'}`} 
           />
-          <span className={`hidden sm:block font-bold tracking-tight transition-all duration-500 ease-in-out ${scrolled ? 'text-lg text-gray-900' : 'text-2xl drop-shadow-md text-white'}`}>
-            EcoTech Evolution
+          <span className={`font-bold tracking-tight transition-all duration-500 ease-in-out ${scrolled || isOpen ? 'text-lg text-gray-900' : 'text-xl sm:text-2xl drop-shadow-md text-white'}`}>
+            EcoTech
+            <span className="hidden sm:inline"> Evolution</span>
           </span>
         </Link>
 
@@ -79,7 +80,7 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`md:hidden p-2 transition-colors duration-300 ${scrolled ? 'text-gray-900' : 'text-white'}`}
+          className={`md:hidden p-2 transition-colors duration-300 ${scrolled || isOpen ? 'text-gray-900' : 'text-white'}`}
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

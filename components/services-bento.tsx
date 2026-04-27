@@ -67,7 +67,7 @@ export function ServicesBento() {
         </motion.div>
 
         {/* Bento Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 auto-rows-[460px] gap-8">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 auto-rows-[380px] md:auto-rows-[460px] gap-6 lg:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
@@ -77,7 +77,7 @@ export function ServicesBento() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`group relative overflow-hidden rounded-[2rem] bg-gray-900 flex flex-col justify-end p-8 shadow-sm hover:shadow-2xl transition-all duration-500 ${service.className}`}
+                className={`group relative overflow-hidden rounded-[2rem] bg-gray-900 flex flex-col justify-end p-6 md:p-8 shadow-sm hover:shadow-2xl transition-all duration-500 ${service.className}`}
               >
                 {/* Background Image */}
                 <Image
