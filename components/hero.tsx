@@ -43,7 +43,7 @@ export function Hero() {
             </h1>
             
             <p className="mt-6 text-lg sm:text-xl text-zinc-200 max-w-xl leading-relaxed drop-shadow-sm font-light">
-              Swiss-quality solar panels, heat pumps, and climate systems. 
+              Premium solar panels, heat pumps, and climate systems. 
               Designed and installed by certified experts in Macedonia.
             </p>
 

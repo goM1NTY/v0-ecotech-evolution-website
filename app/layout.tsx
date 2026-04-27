@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'EcoTech Evolution | Renewable Energy Solutions in Struga',
-  description: 'Swiss-quality renewable energy solutions for a greener Macedonia. Solar PV, Heat Pumps, Air Conditioning, and Industrial Systems.',
+  description: 'Premium renewable energy solutions for a greener Macedonia. Solar PV, Heat Pumps, Air Conditioning, and Industrial Systems.',
   icons: {
     icon: [
       {

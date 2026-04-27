@@ -56,7 +56,7 @@ export function ServicesBento() {
         >
           <div className="w-12 h-1 bg-[#7CB342] rounded-full mb-4" />
           <span className="text-sm font-bold text-[#7CB342] tracking-wide uppercase">
-            Swiss Quality Offerings
+            Comprehensive Energy Offerings
           </span>
           <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
             Comprehensive <br /> Energy Solutions

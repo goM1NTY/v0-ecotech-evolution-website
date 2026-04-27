@@ -38,7 +38,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm text-gray-600 leading-relaxed max-w-xs">
-              Swiss-quality renewable energy solutions for a greener Macedonia.
+              Premium renewable energy solutions for a greener Macedonia.
             </p>
           </div>
 
