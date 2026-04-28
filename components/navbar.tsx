@@ -10,6 +10,7 @@ import logoImage from "@/assets/logo.png"
 const navLinks = [
   { href: "#services", label: "Services" },
   { href: "#projects", label: "Projects" },
+  { href: "#gallery", label: "Gallery" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ]
@@ -44,27 +45,37 @@ export function Navbar() {
             alt="EcoTech Evolution Logo" 
             width={72} 
             height={72} 
-            className={`object-contain drop-shadow-sm transition-all duration-500 ease-in-out ${scrolled ? 'w-10 h-10' : 'w-12 h-12 sm:w-14 sm:h-14'}`} 
+            className={`object-contain drop-shadow-sm transition-all duration-500 ease-in-out ${scrolled ? 'w-12 h-12' : 'w-12 h-12 sm:w-14 sm:h-14'}`} 
           />
-          <span className={`font-bold tracking-tight transition-all duration-500 ease-in-out ${scrolled || isOpen ? 'text-sm text-gray-900' : 'text-base sm:text-lg drop-shadow-md text-white'}`}>
+          <span className={`font-bold tracking-tight transition-all duration-500 ease-in-out ${scrolled || isOpen ? 'text-base text-gray-900' : 'text-base sm:text-lg drop-shadow-md text-white'}`}>
             EcoTech
             <span className="hidden sm:inline"> Evolution</span>
           </span>
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 md:flex">
           {/* Desktop Navigation */}
           <div className="flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-medium transition-all duration-500 ease-in-out ${scrolled ? 'text-[15px] text-gray-600 hover:text-[#7CB342]' : 'text-[17px] drop-shadow-md text-white/95 hover:text-white'}`}
+                className={`font-semibold transition-all duration-500 ease-in-out ${scrolled ? 'text-[15px] text-gray-600 hover:text-[#7CB342]' : 'text-[17px] drop-shadow-md text-white/95 hover:text-white'}`}
               >
                 {link.label}
               </Link>
             ))}
           </div>
+          <a
+            href="#contact"
+            className={`rounded-md px-4 py-2 text-sm font-semibold transition-all duration-500 ease-in-out ${
+              scrolled
+                ? "bg-[#7CB342] text-white shadow-sm hover:bg-[#689F38]"
+                : "bg-white/90 text-gray-900 shadow-sm backdrop-blur-md hover:bg-white"
+            }`}
+          >
+            Get a Quote
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -92,7 +103,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-gray-800 py-3 text-base font-medium hover:text-[#7CB342]"
+                  className="text-gray-800 py-3 text-base font-semibold hover:text-[#7CB342]"
                 >
                   {link.label}
                 </Link>

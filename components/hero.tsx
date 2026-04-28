@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -11,6 +11,14 @@ const whatsappUrl = "https://wa.me/38970123456"
 
 export function Hero() {
   const [showWhatsAppPrompt, setShowWhatsAppPrompt] = useState(true)
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setShowWhatsAppPrompt(false)
+    }, 5000)
+
+    return () => window.clearTimeout(timer)
+  }, [])
 
   return (
     <section className="relative min-h-[100dvh] flex flex-col pt-24 lg:pt-0 overflow-hidden">
