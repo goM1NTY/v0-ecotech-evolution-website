@@ -1,0 +1,22 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">EcoTech Evolution Logo</title>
+  <desc id="desc">Transparent EcoTech Evolution green e logo mark</desc>
+  <path
+    d="M36 34A46 46 0 1 1 36 94"
+    stroke="#8CC63F"
+    stroke-width="16"
+    stroke-linecap="butt"
+  />
+  <path
+    d="M82 48A28 28 0 1 0 82 80"
+    stroke="#8CC63F"
+    stroke-width="16"
+    stroke-linecap="butt"
+  />
+  <path
+    d="M10 64H116"
+    stroke="#8CC63F"
+    stroke-width="16"
+    stroke-linecap="butt"
+  />
+</svg>

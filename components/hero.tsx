@@ -1,11 +1,17 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import daikinPartnerLogo from "@/assets/dnew.png"
+
+const whatsappUrl = "https://wa.me/38970123456"
 
 export function Hero() {
+  const [showWhatsAppPrompt, setShowWhatsAppPrompt] = useState(true)
+
   return (
     <section className="relative min-h-[100dvh] flex flex-col pt-24 lg:pt-0 overflow-hidden">
       {/* Background Image Setup */}
@@ -22,7 +28,7 @@ export function Hero() {
       </div>
 
       {/* Main Structural Container - Uses flex-1 to take full remaining height */}
-      <div className="relative z-10 flex w-full flex-1 flex-col pl-2 pr-6 lg:pl-3 lg:pr-12">
+      <div className="relative z-10 flex w-full flex-1 flex-col pl-3 pr-6 lg:pl-5 lg:pr-12">
         
         {/* Centered Text Area - Flex-1 perfectly centers everything inside it */}
         <div className="flex-1 flex flex-col justify-center max-w-3xl pb-8 lg:pb-0">
@@ -69,51 +75,87 @@ export function Hero() {
                 <a href="#contact">Get Free Quote</a>
               </Button>
             </div>
-          </motion.div>
-        </div>
 
-        {/* Stats Footer - Naturally pinned to bottom without buggy absolutes */}
-        <div className="pb-12 pt-4 relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-row flex-wrap items-center gap-6 sm:gap-x-12"
-          >
-            <div className="flex items-center gap-3">
-               <div className="text-white">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="9" x2="9" y1="3" y2="21"/><line x1="15" x2="15" y1="3" y2="21"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="3" x2="21" y1="15" y2="15"/></svg>
-               </div>
-              <div>
-                <p className="text-2xl font-bold text-[#84CC16]">29+</p>
-                <p className="text-sm text-zinc-300 font-medium">Projects Completed</p>
+            <div className="relative mt-8 flex flex-row flex-wrap items-center gap-6 sm:gap-x-10">
+              <div className="flex items-center gap-3">
+                 <div className="text-white">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="9" x2="9" y1="3" y2="21"/><line x1="15" x2="15" y1="3" y2="21"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="3" x2="21" y1="15" y2="15"/></svg>
+                 </div>
+                <div>
+                  <p className="text-2xl font-bold text-[#84CC16]">29+</p>
+                  <p className="text-sm text-zinc-300 font-medium">Projects Completed</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-3">
-               <div className="text-white">
-                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-               </div>
-              <div>
-                <p className="text-2xl font-bold text-[#84CC16]">1.2MW</p>
-                <p className="text-sm text-zinc-300 font-medium">Total Installed</p>
+              <div className="flex items-center gap-3">
+                 <div className="text-white">
+                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                 </div>
+                <div>
+                  <p className="text-2xl font-bold text-[#84CC16]">1.2MW</p>
+                  <p className="text-sm text-zinc-300 font-medium">Total Installed</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-3">
-               <div className="text-white">
-                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-               </div>
-              <div>
-                <p className="text-2xl font-bold text-[#84CC16]">500+</p>
-                <p className="text-sm text-zinc-300 font-medium">Tons CO₂ Saved</p>
+              <div className="flex items-center gap-3">
+                 <div className="text-white">
+                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                 </div>
+                <div>
+                  <p className="text-2xl font-bold text-[#84CC16]">500+</p>
+                  <p className="text-sm text-zinc-300 font-medium">Tons CO₂ Saved</p>
+                </div>
               </div>
+              <Image
+                src={daikinPartnerLogo}
+                alt="Daikin Premium Partner"
+                width={220}
+                height={147}
+                className="absolute left-0 top-full mt-4 h-auto w-44 object-contain sm:left-0 sm:w-52"
+                priority
+              />
             </div>
           </motion.div>
         </div>
       </div>
 
       {/* WhatsApp Button - floating right */}
+      {showWhatsAppPrompt && (
+        <motion.div
+          initial={{ opacity: 0, y: 12, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ type: "spring", delay: 0.9 }}
+          className="fixed bottom-24 right-6 z-50 w-72 rounded-xl border border-white/20 bg-white/85 p-4 text-gray-900 shadow-2xl shadow-black/20 backdrop-blur-xl"
+        >
+          <button
+            type="button"
+            onClick={() => setShowWhatsAppPrompt(false)}
+            className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full text-lg leading-none text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-700"
+            aria-label="Close WhatsApp prompt"
+          >
+            ×
+          </button>
+          <div className="flex items-start gap-3 pr-7">
+            <div className="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#7CB342] text-white shadow-lg shadow-[#7CB342]/25">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            </div>
+            <div>
+              <p className="text-sm font-semibold">Talk to an EcoTech advisor</p>
+              <p className="mt-1 text-sm leading-relaxed text-gray-600">
+                Get quick guidance for solar, heating, and cooling systems.
+              </p>
+            </div>
+          </div>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 flex items-center justify-center rounded-md bg-[#7CB342] px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-[#7CB342]/20 transition-colors hover:bg-[#689F38]"
+          >
+            Message on WhatsApp
+          </a>
+        </motion.div>
+      )}
       <motion.a
-        href="https://wa.me/38912345678"
+        href={whatsappUrl}
         target="_blank"
         rel="noreferrer"
         initial={{ scale: 0 }}

@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
+import logoImage from "@/assets/logo.png"
 
 const navLinks = [
   { href: "#services", label: "Services" },
@@ -37,15 +38,15 @@ export function Navbar() {
     >
       <nav className={`relative flex w-full items-center justify-between pl-2 pr-2 lg:pl-3 lg:pr-3 transition-all duration-500 ease-in-out ${scrolled ? 'h-16' : 'h-24'}`}>
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-4">
+        <Link href="/" className="flex items-center gap-2.5">
           <Image 
-            src="/logo.jpg" 
+            src={logoImage}
             alt="EcoTech Evolution Logo" 
             width={72} 
             height={72} 
-            className={`rounded object-cover shadow-sm transition-all duration-500 ease-in-out ${scrolled ? 'w-8 h-8' : 'w-10 h-10 sm:w-11 sm:h-11'}`} 
+            className={`object-contain drop-shadow-sm transition-all duration-500 ease-in-out ${scrolled ? 'w-10 h-10' : 'w-12 h-12 sm:w-14 sm:h-14'}`} 
           />
-          <span className={`font-bold tracking-tight transition-all duration-500 ease-in-out ${scrolled || isOpen ? 'text-base text-gray-900' : 'text-lg sm:text-xl drop-shadow-md text-white'}`}>
+          <span className={`font-bold tracking-tight transition-all duration-500 ease-in-out ${scrolled || isOpen ? 'text-sm text-gray-900' : 'text-base sm:text-lg drop-shadow-md text-white'}`}>
             EcoTech
             <span className="hidden sm:inline"> Evolution</span>
           </span>
@@ -63,18 +64,6 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-          </div>
-
-          {/* Partner Logo right side */}
-          <div className={`flex items-center justify-center rounded px-2 py-1.5 backdrop-blur-md transition-all duration-500 ease-in-out ${scrolled ? '' : 'bg-white/90 shadow-sm'}`}>
-            <Image
-              src="/images/daikin-partner.svg"
-              alt="Daikin Premium Partner"
-              width={140}
-              height={20}
-              className={`w-auto object-contain transition-all duration-500 ease-in-out ${scrolled ? 'h-4' : 'h-5'}`}
-              priority
-            />
           </div>
         </div>
 

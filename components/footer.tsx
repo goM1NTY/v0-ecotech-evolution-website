@@ -3,6 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { MapPin, Phone, Mail } from "lucide-react"
+import logoImage from "@/assets/logo.png"
 
 const footerLinks = {
   services: [
@@ -27,11 +28,11 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3">
               <Image
-                src="/images/logo.png"
+                src={logoImage}
                 alt="EcoTech Evolution"
                 width={40}
                 height={40}
-                className="rounded"
+                className="object-contain"
               />
               <span className="font-semibold text-gray-900">
                 EcoTech Evolution
