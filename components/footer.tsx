@@ -115,12 +115,12 @@ export function Footer() {
             2024 EcoTech Evolution. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">
+            <Link href="/privacy-policy" className="text-sm text-gray-500 hover:text-white transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">
+            </Link>
+            <Link href="/terms-of-service" className="text-sm text-gray-500 hover:text-white transition-colors">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
