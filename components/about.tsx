@@ -36,7 +36,7 @@ const certifications = ["CE Certified", "IEC 61730", "TUV Approved", "IEC 62446"
 
 export function About() {
   return (
-    <section className="py-24 lg:py-32 bg-[#FBFBFD] overflow-hidden">
+    <section className="py-12 lg:py-32 bg-[#FBFBFD] overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Section Header */}
@@ -54,7 +54,7 @@ export function About() {
         </motion.div>
 
         {/* The Enterprise Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px] lg:auto-rows-[280px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:auto-rows-[250px] lg:auto-rows-[280px]">
           
           {/* Main Visual Anchor - The Team (Takes up 2 columns, spanning 2 rows) */}
           <motion.div
@@ -62,7 +62,7 @@ export function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="md:col-span-2 md:row-span-2 relative rounded-[2rem] overflow-hidden group shadow-2xl shadow-gray-200/50"
+            className="md:col-span-2 md:row-span-2 relative rounded-[2rem] overflow-hidden group shadow-2xl shadow-gray-200/50 min-h-[350px]"
           >
             {/* Dark gradient mapping over the image */}
             <div className="absolute inset-0 bg-gray-900 z-0"/>
@@ -77,16 +77,16 @@ export function About() {
             {/* Burn-in vignette gradient for extreme readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/40 to-transparent z-10 opacity-90" />
             
-            <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-20 w-full flex flex-col justify-end">
-              <div className="inline-flex items-center backdrop-blur-md bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6 w-max">
+            <div className="absolute bottom-0 left-0 p-6 sm:p-12 z-20 w-full flex flex-col justify-end">
+              <div className="inline-flex items-center backdrop-blur-md bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-4 w-max">
                 <MapPin className="w-4 h-4 text-[#7CB342] mr-2" />
                 <span className="text-sm font-semibold text-white tracking-wide uppercase">HQ • Struga, Mk</span>
               </div>
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 leading-tight">
-                Precision in <br/>Every Detail.
+              <h3 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-3 leading-tight">
+                Precision in Every Detail.
               </h3>
-              <p className="text-gray-300 text-base sm:text-lg max-w-xl font-light">
-                We don't just sell equipment. We engineer solutions. From load calculations and thermal mapping to final system commissioning, our focus is absolute efficiency and long-term stability.
+              <p className="text-gray-300 text-sm sm:text-lg max-w-xl font-light hidden sm:block">
+                We engineer complete solutions — from load calculations and thermal mapping to final system commissioning.
               </p>
             </div>
             <div className="absolute inset-0 z-30 ring-1 ring-inset ring-white/10 rounded-[2rem]" />
@@ -226,11 +226,11 @@ export function About() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+            <div className="grid grid-cols-2 justify-items-center gap-3 sm:grid-cols-3 lg:grid-cols-5">
               {certifications.map((certification) => (
                 <div
                   key={certification}
-                  className="flex min-h-24 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] px-4 text-center text-base font-extrabold leading-tight text-white shadow-sm backdrop-blur-sm transition-colors hover:bg-white/10 hover:border-white/20"
+                  className="w-full flex min-h-24 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] px-4 text-center text-base font-extrabold leading-tight text-white shadow-sm backdrop-blur-sm transition-colors hover:bg-white/10 hover:border-white/20 last:col-span-2 last:max-w-[calc(50%-6px)] sm:last:col-span-1 sm:last:max-w-none"
                 >
                   {certification}
                 </div>

@@ -22,48 +22,57 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[100dvh] flex flex-col pt-24 lg:pt-0 overflow-hidden">
-      {/* Background Image Setup */}
+      {/* Background Image Setup - Responsive art direction */}
       <div className="absolute inset-0 z-0">
+        {/* Mobile portrait image */}
+        <Image
+          src="/hero-bg-mobile.png"
+          alt="Solar panel installation"
+          fill
+          priority
+          className="object-cover md:hidden"
+        />
+        {/* Desktop landscape image */}
         <Image
           src="/hero-bg.png"
           alt="Modern house with solar panels"
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-center hidden md:block"
         />
-        {/* Dark overlay gradient for readability without washing out the image */}
+        {/* Dark overlay gradient for readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
       </div>
 
-      {/* Main Structural Container - Uses flex-1 to take full remaining height */}
-      <div className="relative z-10 flex w-full flex-1 flex-col pl-3 pr-6 lg:pl-5 lg:pr-12">
+      {/* Main Structural Container */}
+      <div className="relative z-10 flex w-full flex-1 flex-col px-5 sm:pl-5 sm:pr-12">
         
-        {/* Centered Text Area - Flex-1 perfectly centers everything inside it */}
-        <div className="flex-1 flex flex-col justify-center max-w-3xl pb-8 lg:pb-0">
+        {/* Text Area - bottom on mobile, centered on desktop */}
+        <div className="flex-1 flex flex-col justify-end sm:justify-center max-w-3xl pb-16 sm:pb-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-12 h-1 bg-[#7CB342] rounded-full mb-6" />
-            <span className="inline-block text-sm font-semibold text-[#84CC16] tracking-wider uppercase mb-2">
+            <div className="w-10 h-1 bg-[#7CB342] rounded-full mb-6" />
+            <span className="inline-block text-xs sm:text-sm font-semibold text-[#84CC16] tracking-wider uppercase mb-3">
               AIR CONDITIONING · HEATING · SOLAR POWER
             </span>
             
-            <h1 className="mt-2 text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight drop-shadow-md">
+            <h1 className="text-[2rem] sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight drop-shadow-md">
               Perfect Climate
               <br />
               <span className="text-[#84CC16]">For Every Space.</span>
             </h1>
             
-            <p className="mt-6 text-lg sm:text-xl text-zinc-200 max-w-xl leading-relaxed drop-shadow-sm font-light">
+            <p className="mt-5 sm:mt-6 text-sm sm:text-xl text-zinc-200 max-w-xl leading-relaxed drop-shadow-sm font-light">
               Premium temperature control and independent energy systems, engineered to your exact specifications.
             </p>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 relative z-20">
+            <div className="mt-8 sm:mt-10 flex flex-row gap-3 relative z-20">
               <Button
                 size="lg"
-                className="bg-[#7CB342] hover:bg-[#689F38] text-white rounded-md h-12 px-8 text-base font-semibold shadow-lg relative z-20"
+                className="bg-[#7CB342] hover:bg-[#689F38] text-white rounded-md h-11 sm:h-12 px-5 sm:px-8 text-sm sm:text-base font-semibold shadow-lg relative z-20"
                 asChild
               >
                 <a href="#services">
@@ -76,14 +85,14 @@ export function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-md h-12 px-8 text-base font-semibold border-white text-white hover:bg-white hover:text-black bg-transparent backdrop-blur-sm transition-all"
+                className="rounded-md h-11 sm:h-12 px-5 sm:px-8 text-sm sm:text-base font-semibold border-white text-white hover:bg-white hover:text-black bg-transparent backdrop-blur-sm transition-all"
                 asChild
               >
                 <a href="#contact">Get Free Quote</a>
               </Button>
             </div>
 
-            <div className="relative mt-8 flex flex-row flex-wrap items-center gap-6 sm:gap-x-10">
+            <div className="relative mt-8 hidden sm:flex flex-row flex-wrap items-center gap-6 sm:gap-x-10">
               <div className="flex items-center gap-3">
                  <div className="text-white">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="9" x2="9" y1="3" y2="21"/><line x1="15" x2="15" y1="3" y2="21"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="3" x2="21" y1="15" y2="15"/></svg>
@@ -111,15 +120,16 @@ export function Hero() {
                   <p className="text-sm text-zinc-300 font-medium">Efficiency Metrics</p>
                 </div>
               </div>
-              <Image
-                src={daikinPartnerLogo}
-                alt="Daikin Premium Partner"
-                width={220}
-                height={147}
-                className="absolute left-0 top-full mt-4 h-auto w-44 object-contain sm:left-0 sm:w-52"
-                priority
-              />
             </div>
+
+            <Image
+              src={daikinPartnerLogo}
+              alt="Daikin Premium Partner"
+              width={220}
+              height={147}
+              className="mt-8 sm:mt-8 h-auto w-28 sm:w-52 object-contain"
+              priority
+            />
           </motion.div>
         </div>
       </div>

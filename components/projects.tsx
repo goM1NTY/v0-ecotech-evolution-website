@@ -85,7 +85,7 @@ export function Projects() {
   }
 
   return (
-    <section className="py-20 lg:py-28 bg-[#FBFBFD] border-t border-gray-100">
+    <section className="py-12 lg:py-24 bg-[#FBFBFD] border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Section Header */}

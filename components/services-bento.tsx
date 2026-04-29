@@ -37,7 +37,7 @@ const services = [
     icon: Factory,
     title: "Heating and Cooling",
     description: "Complete HVAC integration, custom ductwork, and thermal management.",
-    features: ["Custom design", "HVAC Integration", "Maintenance"],
+    features: ["HVAC Integration", "Maintenance"],
     image: "/services/vrv.jpeg",
     className: "col-span-1",
   },
@@ -68,7 +68,7 @@ export function ServicesBento() {
         </motion.div>
 
         {/* Bento Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 auto-rows-[380px] md:auto-rows-[460px] gap-6 lg:gap-8">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 md:auto-rows-[460px] gap-6 lg:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
@@ -93,7 +93,7 @@ export function ServicesBento() {
                 <div className="absolute inset-0 bg-[#7CB342]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
 
                 {/* Content */}
-                <div className="relative z-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="relative z-10 group-hover:translate-y-0 transition-transform duration-500">
                   <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center mb-4 border border-white/20">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
