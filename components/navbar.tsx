@@ -70,8 +70,8 @@ export function Navbar() {
             href="#contact"
             className={`rounded-md px-4 py-2 text-sm font-semibold transition-all duration-500 ease-in-out ${
               scrolled
-                ? "bg-[#7CB342] text-white shadow-sm hover:bg-[#689F38]"
-                : "bg-white/90 text-gray-900 shadow-sm backdrop-blur-md hover:bg-white"
+                ? "border border-[#7CB342] bg-transparent text-[#7CB342] hover:bg-[#7CB342] hover:text-white"
+                : "border border-white/70 bg-transparent text-white backdrop-blur-md hover:bg-white/10"
             }`}
           >
             Get a Quote
