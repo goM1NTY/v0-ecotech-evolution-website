@@ -9,14 +9,16 @@ const googleMapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(m
 
 export function CTA() {
   return (
-    <section id="contact" className="bg-white py-24 lg:py-32">
+    <section className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid lg:grid-cols-[0.82fr_1.18fr] gap-16 items-center">
           {/* Left - Content */}
           <motion.div
+            id="contact"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="scroll-mt-20"
           >
             <span className="text-sm font-semibold uppercase tracking-wide text-emerald-700">
               Contact Us

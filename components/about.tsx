@@ -6,15 +6,16 @@ import { Shield, Award, Clock, MapPin } from "lucide-react"
 
 export function About() {
   return (
-    <section id="about" className="py-24 lg:py-32 bg-[#FBFBFD] overflow-hidden">
+    <section className="py-24 lg:py-32 bg-[#FBFBFD] overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Section Header */}
         <motion.div
+           id="about"
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
-           className="mb-14"
+           className="mb-14 scroll-mt-20"
         >
           <div className="w-12 h-1 bg-[#7CB342] rounded-full mb-6" />
           <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-[1.1]">

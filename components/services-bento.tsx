@@ -45,14 +45,15 @@ const services = [
 
 export function ServicesBento() {
   return (
-    <section id="services" className="py-24 lg:py-32 bg-zinc-50 border-t border-gray-100">
+    <section className="py-24 lg:py-32 bg-zinc-50 border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
+          id="services"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-2xl"
+          className="max-w-2xl scroll-mt-20"
         >
           <div className="w-12 h-1 bg-[#7CB342] rounded-full mb-4" />
           <span className="text-sm font-bold text-[#7CB342] tracking-wide uppercase">

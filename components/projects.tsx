@@ -93,15 +93,16 @@ export function Projects() {
   }
 
   return (
-    <section id="projects" className="py-24 lg:py-32 bg-[#FBFBFD] border-t border-gray-100">
+    <section className="py-24 lg:py-32 bg-[#FBFBFD] border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Section Header */}
         <motion.div
+          id="projects"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-12 scroll-mt-20"
         >
           <div className="w-12 h-1 bg-[#7CB342] rounded-full mb-4" />
           <span className="text-sm font-bold text-[#7CB342] tracking-wide uppercase">
