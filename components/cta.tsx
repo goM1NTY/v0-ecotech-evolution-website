@@ -11,7 +11,7 @@ export function CTA() {
   return (
     <section className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid lg:grid-cols-[0.82fr_1.18fr] gap-16 items-center">
+        <div className="grid gap-16 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           {/* Left - Content */}
           <motion.div
             id="contact"
@@ -75,11 +75,18 @@ export function CTA() {
               </a>
             </div>
 
-            <div className="mt-10 inline-flex items-center gap-3 border-l-4 border-emerald-700 bg-slate-50 px-5 py-4 text-slate-900">
-              <span className="h-2.5 w-2.5 rounded-full bg-emerald-700" />
-              <p className="text-base font-semibold tracking-tight sm:text-lg">
-                24/7 Emergency Service Available
-              </p>
+            <div className="mt-8 max-w-md overflow-hidden rounded-2xl shadow-2xl shadow-[#0B4A35]/20">
+              <div className="flex items-center gap-3 border border-b-0 border-[#0B4A35]/10 bg-[#F3F7F1] px-5 py-4 text-slate-900">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#7CB342]" />
+                <p className="text-base font-semibold tracking-tight">
+                  24/7 Emergency Service Available
+                </p>
+              </div>
+              <div className="flex min-h-[145px] items-end bg-[#0B4A35] p-6 sm:p-7">
+                <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl">
+                  Plan your installation with engineers who answer.
+                </h3>
+              </div>
             </div>
           </motion.div>
 

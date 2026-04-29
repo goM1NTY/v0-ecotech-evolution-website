@@ -4,6 +4,36 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Shield, Award, Clock, MapPin } from "lucide-react"
 
+const milestones = [
+  {
+    year: "2018",
+    title: "Founded in Struga",
+    description: "Started with a clear mission to bring European-grade renewable energy systems to homes and businesses in the region.",
+  },
+  {
+    year: "2020",
+    title: "First commercial install",
+    description: "Delivered our first larger commercial climate and energy project with certified installation standards.",
+  },
+  {
+    year: "2022",
+    title: "European standardization",
+    description: "Expanded our technical process around premium equipment, documented engineering, and reliable field execution.",
+  },
+  {
+    year: "2024",
+    title: "1.2 MW installed",
+    description: "Reached a major installed-capacity milestone across solar, heating, cooling, and integrated energy systems.",
+  },
+  {
+    year: "Today",
+    title: "Regional expansion",
+    description: "Operating from Struga with growing renewable energy and climate system projects across Macedonia.",
+  },
+]
+
+const certifications = ["CE Certified", "IEC 61730", "TUV Approved", "IEC 62446", "ISO 9001"]
+
 export function About() {
   return (
     <section className="py-24 lg:py-32 bg-[#FBFBFD] overflow-hidden">
@@ -109,6 +139,102 @@ export function About() {
           </motion.div>
 
         </div>
+
+        {/* Journey Timeline */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-24 lg:mt-32"
+        >
+          <div className="flex items-center gap-6">
+            <div className="h-1 w-16 rounded-full bg-[#7CB342]" />
+            <span className="text-sm font-bold uppercase tracking-[0.35em] text-slate-500">
+              Our Journey
+            </span>
+          </div>
+
+          <h3 className="mt-8 max-w-4xl text-3xl font-extrabold leading-[1.08] tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+            Milestones that shaped us.
+          </h3>
+
+          <div className="relative mt-16 hidden lg:block">
+            <div className="absolute left-0 right-0 top-[18px] h-1 rounded-full bg-slate-300" />
+            <div className="grid grid-cols-5 gap-10">
+              {milestones.map((milestone, index) => (
+                <div key={milestone.year} className="relative pt-16">
+                  <div className="absolute left-0 top-0 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-slate-100">
+                    <span
+                      className={`h-5 w-5 rounded-full ${
+                        index === milestones.length - 1 ? "bg-slate-600" : "bg-slate-300"
+                      }`}
+                    />
+                  </div>
+                  <p className="text-lg font-extrabold text-[#7CB342]">{milestone.year}</p>
+                  <h4 className="mt-5 text-xl font-extrabold leading-tight text-slate-950">
+                    {milestone.title}
+                  </h4>
+                  <p className="mt-3 text-base leading-relaxed text-slate-500">
+                    {milestone.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 space-y-8 lg:hidden">
+            {milestones.map((milestone, index) => (
+              <div key={milestone.year} className="relative border-l-2 border-slate-300 pl-8">
+                <div className="absolute -left-[11px] top-1 flex h-5 w-5 items-center justify-center rounded-full bg-slate-100">
+                  <span
+                    className={`h-3 w-3 rounded-full ${
+                      index === milestones.length - 1 ? "bg-slate-600" : "bg-slate-300"
+                    }`}
+                  />
+                </div>
+                <p className="text-base font-extrabold text-[#7CB342]">{milestone.year}</p>
+                <h4 className="mt-3 text-xl font-extrabold leading-tight text-slate-950">
+                  {milestone.title}
+                </h4>
+                <p className="mt-3 text-base leading-relaxed text-slate-500">
+                  {milestone.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Certification Strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-20 rounded-[2rem] border border-[#0E5A3E]/10 bg-[#0B4A35] p-6 shadow-2xl shadow-[#0B4A35]/20 sm:p-8 lg:p-12"
+        >
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.6fr] lg:items-center">
+            <div>
+              <span className="inline-flex rounded-full bg-[#7CB342]/15 px-5 py-2 text-xs font-bold uppercase tracking-[0.35em] text-[#7CB342]">
+                Certified & Compliant
+              </span>
+              <p className="mt-5 max-w-md text-lg leading-relaxed text-emerald-50/75">
+                Independently audited against demanding European standards for renewable energy and climate system installations.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+              {certifications.map((certification) => (
+                <div
+                  key={certification}
+                  className="flex min-h-24 items-center justify-center rounded-2xl border border-white/15 bg-white/8 px-4 text-center text-base font-extrabold leading-tight text-white shadow-sm backdrop-blur-sm"
+                >
+                  {certification}
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
