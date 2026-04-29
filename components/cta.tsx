@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ExternalLink, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
+import { ExternalLink, Mail, MapPin, MessageCircle, Phone, ShieldCheck, Clock } from "lucide-react"
 
 const mapAddress = "Marks Engels 31, Struga 6330"
 const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapAddress)}`
@@ -75,18 +75,32 @@ export function CTA() {
               </a>
             </div>
 
-            <div className="mt-8 max-w-md overflow-hidden rounded-2xl shadow-2xl shadow-[#0B4A35]/20">
-              <div className="flex items-center gap-3 border border-b-0 border-[#0B4A35]/10 bg-[#F3F7F1] px-5 py-4 text-slate-900">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#7CB342]" />
-                <p className="text-base font-semibold tracking-tight">
-                  24/7 Emergency Service Available
-                </p>
+            <div className="mt-10 max-w-md rounded-2xl bg-gray-900 p-6 sm:p-7 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-[#7CB342] rounded-l-2xl" />
+              <div className="flex items-center gap-2.5 mb-4">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7CB342] opacity-60"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#7CB342]"></span>
+                </span>
+                <span className="text-xs font-bold uppercase tracking-widest text-gray-400">
+                  Available Now
+                </span>
               </div>
-              <div className="flex min-h-[145px] items-end bg-[#0B4A35] p-6 sm:p-7">
-                <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl">
-                  Plan your installation with engineers who answer.
-                </h3>
-              </div>
+              <h3 className="text-xl font-bold text-white leading-snug mb-2">
+                Get your free consultation today.
+              </h3>
+              <p className="text-sm text-gray-400 leading-relaxed mb-5">
+                Typical response under 15 minutes. Our engineers are ready to plan your installation.
+              </p>
+              <a
+                href="https://wa.me/38970123456"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#7CB342] hover:bg-[#689F38] px-5 py-2.5 text-sm font-semibold text-white transition-colors shadow-lg shadow-[#7CB342]/20"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Start a Conversation
+              </a>
             </div>
           </motion.div>
 

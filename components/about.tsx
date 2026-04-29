@@ -211,14 +211,17 @@ export function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-20 rounded-[2rem] border border-[#0E5A3E]/10 bg-[#0B4A35] p-6 shadow-2xl shadow-[#0B4A35]/20 sm:p-8 lg:p-12"
+          className="mt-20 rounded-[2rem] border border-gray-800 bg-gray-900 p-6 shadow-xl sm:p-8 lg:p-12 relative overflow-hidden"
         >
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.6fr] lg:items-center">
+          {/* Ambient background */}
+          <div className="absolute -top-10 -right-10 w-56 h-56 bg-white/[0.02] rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="relative z-10 grid gap-8 lg:grid-cols-[0.9fr_1.6fr] lg:items-center">
             <div>
-              <span className="inline-flex rounded-full bg-[#7CB342]/15 px-5 py-2 text-xs font-bold uppercase tracking-[0.35em] text-[#7CB342]">
+              <span className="inline-flex rounded-full bg-[#7CB342]/15 px-5 py-2 text-xs font-bold uppercase tracking-[0.35em] text-[#7CB342] border border-[#7CB342]/20">
                 Certified & Compliant
               </span>
-              <p className="mt-5 max-w-md text-lg leading-relaxed text-emerald-50/75">
+              <p className="mt-5 max-w-md text-lg leading-relaxed text-gray-400">
                 Independently audited against demanding European standards for renewable energy and climate system installations.
               </p>
             </div>
@@ -227,7 +230,7 @@ export function About() {
               {certifications.map((certification) => (
                 <div
                   key={certification}
-                  className="flex min-h-24 items-center justify-center rounded-2xl border border-white/15 bg-white/8 px-4 text-center text-base font-extrabold leading-tight text-white shadow-sm backdrop-blur-sm"
+                  className="flex min-h-24 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] px-4 text-center text-base font-extrabold leading-tight text-white shadow-sm backdrop-blur-sm transition-colors hover:bg-white/10 hover:border-white/20"
                 >
                   {certification}
                 </div>
