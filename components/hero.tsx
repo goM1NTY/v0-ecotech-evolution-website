@@ -60,7 +60,7 @@ export function Hero() {
               Premium temperature control and independent energy systems, engineered to your exact specifications.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-4 relative z-20">
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 relative z-20">
               <Button
                 size="lg"
                 className="bg-[#7CB342] hover:bg-[#689F38] text-white rounded-md h-12 px-8 text-base font-semibold shadow-lg relative z-20"

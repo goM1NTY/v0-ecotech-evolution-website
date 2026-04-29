@@ -94,7 +94,7 @@ export function Projects() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 scroll-mt-20"
+          className="mb-10 md:mb-12 scroll-mt-20"
         >
           <div>
             <div className="flex items-center gap-3 mb-3">
@@ -107,27 +107,44 @@ export function Projects() {
               Featured Deployments
             </h2>
           </div>
-          
-          <p className="text-gray-500 max-w-md text-base leading-relaxed">
-            Real-world integration of high-performance climate and renewable energy architectures across Macedonia.
-          </p>
         </motion.div>
 
         {/* Master Architectural Showcase (Light Theme) */}
-        <div className="grid lg:grid-cols-[280px_1fr] gap-8 lg:gap-16">
+        {/* Mobile: Horizontal scrollable tab bar */}
+        <div className="flex lg:hidden overflow-x-auto pb-2 gap-2 mb-6 -mx-1 px-1">
+          {projects.map((project, idx) => {
+            const isActive = idx === currentProjectIndex
+            return (
+              <button
+                key={project.id}
+                onClick={() => setProject(idx)}
+                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
+                  isActive
+                    ? "bg-[#7CB342] border-[#7CB342] text-white"
+                    : "bg-white border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                }`}
+              >
+                {project.title}
+              </button>
+            )
+          })}
+        </div>
+
+        {/* Desktop: Sidebar + Image grid */}
+        <div className="grid lg:grid-cols-[280px_1fr] gap-8 lg:gap-12">
           
-          {/* Left: Project Selector (The List) */}
-          <div className="flex flex-col gap-2">
+          {/* Left: Project Selector (desktop only) */}
+          <div className="hidden lg:flex flex-col gap-2">
             {projects.map((project, idx) => {
               const isActive = idx === currentProjectIndex
               return (
                 <button
                   key={project.id}
                   onClick={() => setProject(idx)}
-                  className={`group flex flex-col text-left pl-5 py-3 border-l-2 transition-all duration-300 ${
+                  className={`group flex flex-col text-left pl-5 py-3 border-l-2 rounded-r-lg cursor-pointer transition-all duration-300 ${
                     isActive 
-                      ? "border-[#7CB342]" 
-                      : "border-gray-200 hover:border-gray-300"
+                      ? "border-[#7CB342] bg-[#7CB342]/5" 
+                      : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
                   }`}
                 >
                   <span className={`text-[10px] font-mono tracking-widest uppercase mb-1 transition-colors ${
@@ -145,7 +162,7 @@ export function Projects() {
             })}
 
             {/* Global CTA */}
-            <div className="mt-8 pt-8 border-t border-gray-100 hidden lg:block">
+            <div className="mt-6 pt-6 border-t border-gray-100 hidden lg:block">
               <a 
                 href="#contact" 
                 className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-gray-900 transition-colors"
@@ -218,33 +235,35 @@ export function Projects() {
             </div>
 
             {/* Bottom Technical Spec Data (Clean, B2B style) */}
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6 pt-2">
+            <div className="flex flex-col gap-4 pt-4">
               
-              <div className="max-w-xl">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{currentProject.title}</h3>
-                <p className="text-gray-500 text-base leading-relaxed">
-                  {currentProject.description}
-                </p>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <h3 className="text-2xl font-bold text-gray-900">{currentProject.title}</h3>
+                
+                <div className="flex items-center gap-6 sm:gap-8 shrink-0">
+                  <div className="h-8 w-px bg-gray-200 hidden sm:block" />
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-[10px] font-mono tracking-[0.15em] text-gray-400 uppercase">
+                      Output
+                    </span>
+                    <span className="text-lg font-bold text-[#7CB342]">
+                      {currentProject.capacity}
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-[10px] font-mono tracking-[0.15em] text-gray-400 uppercase">
+                      Location
+                    </span>
+                    <span className="text-lg font-bold text-gray-900">
+                      {currentProject.location}
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div className="flex items-center gap-6 sm:gap-8 shrink-0">
-                <div className="flex flex-col gap-1">
-                  <span className="text-[10px] font-mono tracking-[0.15em] text-gray-400 uppercase">
-                    Output
-                  </span>
-                  <span className="text-lg font-bold text-[#7CB342]">
-                    {currentProject.capacity}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-[10px] font-mono tracking-[0.15em] text-gray-400 uppercase">
-                    Location
-                  </span>
-                  <span className="text-lg font-bold text-gray-900">
-                    {currentProject.location}
-                  </span>
-                </div>
-              </div>
+              <p className="text-gray-500 text-base leading-relaxed max-w-xl">
+                {currentProject.description}
+              </p>
 
             </div>
 
