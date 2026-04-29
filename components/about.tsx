@@ -6,29 +6,29 @@ import { Shield, Award, Clock, MapPin } from "lucide-react"
 
 const milestones = [
   {
-    year: "2018",
-    title: "Founded in Struga",
-    description: "Started with a clear mission to bring European-grade renewable energy systems to homes and businesses in the region.",
+    year: "01",
+    title: "Site Evaluation",
+    description: "Physical inspection of the property to assess structural readiness, electrical capacity, and spatial constraints.",
   },
   {
-    year: "2020",
-    title: "First commercial install",
-    description: "Delivered our first larger commercial climate and energy project with certified installation standards.",
+    year: "02",
+    title: "Thermal Mapping",
+    description: "Calculating exact load requirements to ensure the system is perfectly scaled. Never underpowered, never oversized.",
   },
   {
-    year: "2022",
-    title: "European standardization",
-    description: "Expanded our technical process around premium equipment, documented engineering, and reliable field execution.",
+    year: "03",
+    title: "Hardware Selection",
+    description: "Sourcing the optimal inverter, heat pump, or PV array from our tier-one manufacturing partners.",
   },
   {
-    year: "2024",
-    title: "1.2 MW installed",
-    description: "Reached a major installed-capacity milestone across solar, heating, cooling, and integrated energy systems.",
+    year: "04",
+    title: "Precision Install",
+    description: "Field execution by our technical team, adhering strictly to manufacturer protocols and safety standards.",
   },
   {
-    year: "Today",
-    title: "Regional expansion",
-    description: "Operating from Struga with growing renewable energy and climate system projects across Macedonia.",
+    year: "05",
+    title: "Commissioning",
+    description: "System testing, performance verification, and final handover with client operational training.",
   },
 ]
 
@@ -49,7 +49,7 @@ export function About() {
         >
           <div className="w-12 h-1 bg-[#7CB342] rounded-full mb-6" />
           <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-[1.1]">
-            Engineering the benchmark.
+            European Engineering Standards.
           </h2>
         </motion.div>
 
@@ -83,10 +83,10 @@ export function About() {
                 <span className="text-sm font-semibold text-white tracking-wide uppercase">HQ • Struga, Mk</span>
               </div>
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 leading-tight">
-                Premium Standards.<br/>Macedonian Execution.
+                Precision in <br/>Every Detail.
               </h3>
               <p className="text-gray-300 text-base sm:text-lg max-w-xl font-light">
-                We bring world-class European engineering directly to your doorstep. From initial blueprinting to lifetime maintenance, our certified team handles the exact science of your climate and energy architecture.
+                We don't just sell equipment. We engineer solutions. From load calculations and thermal mapping to final system commissioning, our focus is absolute efficiency and long-term stability.
               </p>
             </div>
             <div className="absolute inset-0 z-30 ring-1 ring-inset ring-white/10 rounded-[2rem]" />
@@ -151,12 +151,12 @@ export function About() {
           <div className="flex items-center gap-6">
             <div className="h-1 w-16 rounded-full bg-[#7CB342]" />
             <span className="text-sm font-bold uppercase tracking-[0.35em] text-slate-500">
-              Our Journey
+              Integration Process
             </span>
           </div>
 
           <h3 className="mt-8 max-w-4xl text-3xl font-extrabold leading-[1.08] tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
-            Milestones that shaped us.
+            How we execute every project.
           </h3>
 
           <div className="relative mt-16 hidden lg:block">
@@ -219,10 +219,10 @@ export function About() {
           <div className="relative z-10 grid gap-8 lg:grid-cols-[0.9fr_1.6fr] lg:items-center">
             <div>
               <span className="inline-flex rounded-full bg-[#7CB342]/15 px-5 py-2 text-xs font-bold uppercase tracking-[0.35em] text-[#7CB342] border border-[#7CB342]/20">
-                Certified & Compliant
+                Hardware Compliance
               </span>
               <p className="mt-5 max-w-md text-lg leading-relaxed text-gray-400">
-                Independently audited against demanding European standards for renewable energy and climate system installations.
+                All integrated hardware, including PV modules, inverters, and thermal units, meets strict European compliance codes for operational safety and grid compatibility.
               </p>
             </div>
 

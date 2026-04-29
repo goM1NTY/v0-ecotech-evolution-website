@@ -9,7 +9,7 @@ const services = [
     id: "solar",
     icon: Sun,
     title: "Solar PV Systems",
-    description: "Premium photovoltaic panels for residential and commercial properties. Generate clean electricity and reduce your energy bills by up to 80%.",
+    description: "Photovoltaic arrays for energy independence and grid optimization.",
     features: ["Grid-tied systems", "Battery storage"],
     image: "/services/solar-real.png",
     className: "col-span-1",
@@ -18,7 +18,7 @@ const services = [
     id: "heatpump",
     icon: Thermometer,
     title: "Heat Pumps",
-    description: "Cut heating costs by 70% with modern technology.",
+    description: "High-efficiency thermal systems for stable, year-round climate control.",
     features: ["Air-to-water", "Geothermal"],
     image: "/services/altherma.jpeg",
     className: "col-span-1",
@@ -27,7 +27,7 @@ const services = [
     id: "ac",
     icon: Wind,
     title: "Air Conditioning",
-    description: "Year-round climate control with ultra-quiet multi-zone systems.",
+    description: "Multi-zone inverter technology for residential and commercial spaces.",
     features: ["Multi-zone", "Smart controls"],
     image: "/services/air-c.png",
     className: "col-span-1",
@@ -36,7 +36,7 @@ const services = [
     id: "industrial",
     icon: Factory,
     title: "Heating and Cooling",
-    description: "Complete commercial and residential temperature control systems ensuring perfect climate in any season.",
+    description: "Complete HVAC integration, custom ductwork, and thermal management.",
     features: ["Custom design", "HVAC Integration", "Maintenance"],
     image: "/services/vrv.jpeg",
     className: "col-span-1",
@@ -57,13 +57,13 @@ export function ServicesBento() {
         >
           <div className="w-12 h-1 bg-[#7CB342] rounded-full mb-4" />
           <span className="text-sm font-bold text-[#7CB342] tracking-wide uppercase">
-            Comprehensive Energy Offerings
+            Core Capabilities
           </span>
           <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
-            Comprehensive <br /> Energy Solutions
+            High-Performance <br /> Systems
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Engineered in Switzerland. Installed by certified experts in Macedonia.
+            We design and deploy integrated energy architectures using premium hardware from Daikin, Midea, and top-tier PV manufacturers.
           </p>
         </motion.div>
 

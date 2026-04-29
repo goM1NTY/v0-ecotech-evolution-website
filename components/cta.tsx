@@ -24,30 +24,30 @@ export function CTA() {
               Contact Us
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-950 tracking-tight">
-              Ready to Go Green?
+              Let's Talk About Your Project
             </h2>
             <p className="mt-6 max-w-md text-lg text-slate-600">
-              Get a free consultation and quote for your renewable energy project. 
-              Our experts will help you find the perfect solution.
+              Need a quote or some advice? Contact us to discuss your heating, cooling, or solar needs.
             </p>
 
             {/* Contact Methods */}
             <div className="mt-10 space-y-4">
-              <a
-                href="tel:+38970123456"
-                className="group flex items-center gap-4 text-slate-950 transition-colors hover:text-emerald-700"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-md border border-slate-200 bg-white text-emerald-700 shadow-sm transition-colors group-hover:border-emerald-200 group-hover:bg-emerald-50">
+              <div className="group flex items-center gap-4 text-slate-950">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md border border-slate-200 bg-white text-emerald-700 shadow-sm transition-colors group-hover:border-emerald-200 group-hover:bg-emerald-50">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-base font-semibold text-slate-500">Call us</p>
-                  <p className="text-xl font-bold tracking-tight">+389 70 123 456</p>
+                  <div className="flex items-center gap-3">
+                    <a href="tel:+38975727788" className="text-xl font-bold tracking-tight hover:text-emerald-700 transition-colors">075 727 788</a>
+                    <span className="text-slate-300">|</span>
+                    <a href="tel:+38970733433" className="text-xl font-bold tracking-tight hover:text-emerald-700 transition-colors">070 733 433</a>
+                  </div>
                 </div>
-              </a>
+              </div>
               
               <a
-                href="https://wa.me/38970123456"
+                href="https://wa.me/38975727788"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4 text-slate-950 transition-colors hover:text-emerald-700"
@@ -87,13 +87,13 @@ export function CTA() {
                 </span>
               </div>
               <h3 className="text-xl font-bold text-white leading-snug mb-2">
-                Get your free consultation today.
+                Need a quick answer?
               </h3>
               <p className="text-sm text-gray-400 leading-relaxed mb-5">
-                Typical response under 15 minutes. Our engineers are ready to plan your installation.
+                Our team is ready to help you choose the right system for your space. Message us on WhatsApp for a fast response.
               </p>
               <a
-                href="https://wa.me/38970123456"
+                href="https://wa.me/38975727788"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-[#7CB342] hover:bg-[#689F38] px-5 py-2.5 text-sm font-semibold text-white transition-colors shadow-lg shadow-[#7CB342]/20"

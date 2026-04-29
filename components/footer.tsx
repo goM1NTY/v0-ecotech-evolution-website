@@ -42,7 +42,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-8 max-w-sm text-sm leading-relaxed text-gray-400">
-              Premium renewable energy solutions for a greener Macedonia.
+              Efficient heating, cooling and solar solutions for homes and businesses in Struga and the surrounding area.
             </p>
           </div>
 
@@ -98,10 +98,10 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#7CB342] flex-shrink-0" />
                 <a
-                  href="tel:+38970123456"
+                  href="tel:+38975727788"
                   className="text-sm text-gray-400 hover:text-white transition-colors"
                 >
-                  +389 70 123 456
+                  075 727 788
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -120,7 +120,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-500">
-            2024 EcoTech Evolution. All rights reserved.
+            2025 EcoTech Evolution. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href="/privacy-policy" className="text-sm text-gray-500 hover:text-white transition-colors">

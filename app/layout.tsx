@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'EcoTech Evolution | Renewable Energy Solutions in Struga',
-  description: 'Premium renewable energy solutions for a greener Macedonia. Solar PV, Heat Pumps, Air Conditioning, and Industrial Systems.',
+  title: 'EcoTech Evolution | Heating, Cooling & Solar in Struga',
+  description: 'Efficient heating, cooling and solar solutions for homes and businesses in Struga. Inverter air conditioners, heat pumps, and photovoltaic systems — planned and installed locally.',
   icons: {
     icon: [
       {
