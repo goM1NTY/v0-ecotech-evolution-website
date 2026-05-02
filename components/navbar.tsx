@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
@@ -8,15 +9,21 @@ import { Menu, X } from "lucide-react"
 import logoImage from "@/assets/logo.png"
 
 const navLinks = [
-  { href: "#services", label: "Services" },
-  { href: "#projects", label: "Projects" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#services", label: "Services" },
+  { href: "/equipment", label: "Equipment" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ]
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
+  const isSubpage = pathname !== "/"
+
+  // On subpages, navbar is always solid
+  const isSolid = scrolled || isOpen || isSubpage
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,10 +40,10 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || isOpen ? "bg-white shadow-sm" : "bg-transparent"
+        isSolid ? "bg-white shadow-sm" : "bg-transparent"
       }`}
     >
-      <nav className={`relative flex w-full items-center justify-between pl-2 pr-2 lg:pl-3 lg:pr-3 transition-all duration-500 ease-in-out ${scrolled ? 'h-16' : 'h-24'}`}>
+      <nav className={`relative flex w-full items-center justify-between pl-2 pr-2 lg:pl-3 lg:pr-3 transition-all duration-500 ease-in-out ${isSolid ? 'h-16' : 'h-24'}`}>
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5">
           <Image 
@@ -44,9 +51,9 @@ export function Navbar() {
             alt="EcoTech Evolution Logo" 
             width={72} 
             height={72} 
-            className={`object-contain drop-shadow-sm transition-all duration-500 ease-in-out ${scrolled ? 'w-12 h-12' : 'w-12 h-12 sm:w-14 sm:h-14'}`} 
+            className={`object-contain drop-shadow-sm transition-all duration-500 ease-in-out ${isSolid ? 'w-12 h-12' : 'w-12 h-12 sm:w-14 sm:h-14'}`} 
           />
-          <span className={`font-bold tracking-tight transition-all duration-500 ease-in-out ${scrolled || isOpen ? 'text-base text-gray-900' : 'text-base sm:text-lg drop-shadow-md text-white'}`}>
+          <span className={`font-bold tracking-tight transition-all duration-500 ease-in-out ${isSolid ? 'text-base text-gray-900' : 'text-base sm:text-lg drop-shadow-md text-white'}`}>
             EcoTech
             <span className="hidden sm:inline"> Evolution</span>
           </span>
@@ -59,7 +66,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-semibold transition-all duration-500 ease-in-out ${scrolled ? 'text-[15px] text-gray-600 hover:text-[#7CB342]' : 'text-[17px] drop-shadow-md text-white/95 hover:text-white'}`}
+                className={`font-semibold transition-all duration-500 ease-in-out ${isSolid ? 'text-[15px] text-gray-600 hover:text-[#7CB342]' : 'text-[17px] drop-shadow-md text-white/95 hover:text-white'}`}
               >
                 {link.label}
               </Link>
@@ -67,11 +74,7 @@ export function Navbar() {
           </div>
           <a
             href="#contact"
-            className={`rounded-md px-4 py-2 text-sm font-semibold transition-all duration-500 ease-in-out ${
-              scrolled
-                ? "border border-[#7CB342] bg-transparent text-[#7CB342] hover:bg-[#7CB342] hover:text-white"
-                : "border border-white/70 bg-transparent text-white backdrop-blur-md hover:bg-white/10"
-            }`}
+            className="rounded-md px-4 py-2 text-sm font-semibold transition-all duration-300 ease-in-out bg-[#7CB342] text-white hover:bg-[#689f38] shadow-sm hover:shadow-md"
           >
             Get a Quote
           </a>
@@ -80,7 +83,7 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`md:hidden p-2 transition-colors duration-300 ${scrolled || isOpen ? 'text-gray-900' : 'text-white'}`}
+          className={`md:hidden p-2 transition-colors duration-300 ${isSolid ? 'text-gray-900' : 'text-white'}`}
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

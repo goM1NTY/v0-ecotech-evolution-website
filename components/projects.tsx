@@ -161,18 +161,7 @@ export function Projects() {
               )
             })}
 
-            {/* Global CTA */}
-            <div className="mt-6 pt-6 border-t border-gray-100 hidden lg:block">
-              <a 
-                href="#contact" 
-                className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-gray-900 transition-colors"
-              >
-                Request an Assessment
-                <span className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center group-hover:border-[#7CB342] group-hover:bg-[#7CB342]/10 transition-all">
-                  <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-[#7CB342]" />
-                </span>
-              </a>
-            </div>
+            {/* CTA moved to the right side to prevent floating */}
           </div>
 
           {/* Right: The Image Area & Data */}
@@ -261,9 +250,22 @@ export function Projects() {
                 </div>
               </div>
 
-              <p className="text-gray-500 text-base leading-relaxed max-w-xl">
+              <p className="text-gray-500 text-base leading-relaxed max-w-xl mb-4">
                 {currentProject.description}
               </p>
+
+              {/* Global CTA - Moved from Sidebar */}
+              <div className="pt-6 border-t border-gray-100">
+                <a 
+                  href="#contact" 
+                  className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-gray-900 transition-colors"
+                >
+                  Request an Assessment
+                  <span className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center group-hover:border-[#7CB342] group-hover:bg-[#7CB342]/10 transition-all">
+                    <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-[#7CB342]" />
+                  </span>
+                </a>
+              </div>
 
             </div>
 

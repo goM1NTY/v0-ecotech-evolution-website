@@ -7,15 +7,16 @@ import logoImage from "@/assets/logo.png"
 
 const footerLinks = {
   services: [
-    { label: "Solar PV Systems", href: "#services" },
-    { label: "Heat Pumps", href: "#services" },
-    { label: "Air Conditioning", href: "#services" },
-    { label: "Industrial Solutions", href: "#services" },
+    { label: "Solar PV Systems", href: "/equipment?tab=Solar%20PV" },
+    { label: "Heat Pumps", href: "/equipment?tab=Heat%20Pumps" },
+    { label: "Air Conditioning", href: "/equipment?tab=Inverter%20Air%20Conditioners" },
+    { label: "Industrial Solutions", href: "/equipment?tab=Commercial%20Heating%20%26%20Cooling" },
   ],
   company: [
-    { label: "About", href: "#about" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" },
+    { label: "Equipment Portfolio", href: "/equipment" },
+    { label: "About", href: "/#about" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Contact", href: "/#contact" },
   ],
 }
 

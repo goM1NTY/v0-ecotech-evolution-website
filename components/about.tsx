@@ -131,9 +131,9 @@ export function About() {
                <Clock className="w-6 h-6" />
             </div>
             <div className="relative z-10">
-               <h4 className="text-2xl font-bold text-white mb-3">24/7 Field Operations</h4>
+               <h4 className="text-2xl font-bold text-white mb-3">Reliable Field Operations</h4>
                <p className="text-gray-400 text-sm leading-relaxed">
-                 Advanced systemic diagnostics combined with rapid-response physical field teams deployed nationwide. We protect what we build.
+                 Advanced systemic diagnostics combined with rapid-response physical field teams deployed locally from our Struga base. We protect what we build.
                </p>
             </div>
           </motion.div>
@@ -172,7 +172,7 @@ export function About() {
                     />
                   </div>
                   <p className="text-lg font-extrabold text-[#7CB342]">{milestone.year}</p>
-                  <h4 className="mt-5 text-xl font-extrabold leading-tight text-slate-950">
+                  <h4 className="mt-5 text-xl font-bold tracking-tight leading-tight text-slate-950">
                     {milestone.title}
                   </h4>
                   <p className="mt-3 text-base leading-relaxed text-slate-500">
@@ -194,7 +194,7 @@ export function About() {
                   />
                 </div>
                 <p className="text-base font-extrabold text-[#7CB342]">{milestone.year}</p>
-                <h4 className="mt-3 text-xl font-extrabold leading-tight text-slate-950">
+                <h4 className="mt-3 text-xl font-bold tracking-tight leading-tight text-slate-950">
                   {milestone.title}
                 </h4>
                 <p className="mt-3 text-base leading-relaxed text-slate-500">

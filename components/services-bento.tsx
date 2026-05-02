@@ -13,6 +13,7 @@ const services = [
     features: ["Grid-tied systems", "Battery storage"],
     image: "/services/solar-real.png",
     className: "col-span-1",
+    href: "/equipment?tab=Solar%20PV"
   },
   {
     id: "heatpump",
@@ -22,6 +23,7 @@ const services = [
     features: ["Air-to-water", "Geothermal"],
     image: "/services/altherma.jpeg",
     className: "col-span-1",
+    href: "/equipment?tab=Heat%20Pumps"
   },
   {
     id: "ac",
@@ -31,6 +33,7 @@ const services = [
     features: ["Multi-zone", "Smart controls"],
     image: "/services/air-c.png",
     className: "col-span-1",
+    href: "/equipment?tab=Inverter%20Air%20Conditioners"
   },
   {
     id: "industrial",
@@ -40,6 +43,7 @@ const services = [
     features: ["HVAC Integration", "Maintenance"],
     image: "/services/vrv.jpeg",
     className: "col-span-1",
+    href: "/equipment?tab=Commercial%20Heating%20%26%20Cooling"
   },
 ]
 
@@ -120,7 +124,7 @@ export function ServicesBento() {
 
                     {/* Link Icon */}
                     <a
-                      href="#contact"
+                      href={service.href}
                       className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-[#7CB342] group/btn transition-colors shrink-0"
                     >
                       <ArrowRight className="w-5 h-5 text-gray-900 group-hover/btn:text-white transition-colors" />
