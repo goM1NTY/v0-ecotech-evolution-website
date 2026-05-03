@@ -11,7 +11,7 @@ const services = [
     title: "Solar PV Systems",
     description: "Photovoltaic arrays for energy independence and grid optimization.",
     features: ["Grid-tied systems", "Battery storage"],
-    image: "/services/solar-real.png",
+    image: "/services/solar-pv.png",
     className: "col-span-1",
     href: "/#projects"
   },
@@ -21,7 +21,7 @@ const services = [
     title: "Heat Pumps",
     description: "High-efficiency thermal systems for stable, year-round climate control.",
     features: ["Air-to-water", "Geothermal"],
-    image: "/services/altherma.jpeg",
+    image: "/services/heat-pumps.jpeg",
     className: "col-span-1",
     href: "/equipment?tab=Heat%20Pumps"
   },
@@ -31,7 +31,7 @@ const services = [
     title: "Air Conditioning",
     description: "Multi-zone inverter technology for residential and commercial spaces.",
     features: ["Multi-zone", "Smart controls"],
-    image: "/services/air-c.png",
+    image: "/services/air-conditioning.png",
     className: "col-span-1",
     href: "/equipment?tab=Inverter%20Air%20Conditioners"
   },
@@ -41,7 +41,7 @@ const services = [
     title: "Heating and Cooling",
     description: "Complete HVAC integration, custom ductwork, and thermal management.",
     features: ["HVAC Integration", "Maintenance"],
-    image: "/services/vrv.jpeg",
+    image: "/services/commercial-hvac.jpeg",
     className: "col-span-1",
     href: "/equipment?tab=Commercial%20Heating%20%26%20Cooling"
   },
