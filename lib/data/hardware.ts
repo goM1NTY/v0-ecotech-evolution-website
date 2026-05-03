@@ -42,7 +42,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-daikin-altherma-3-h-ht-f-etvx-e6v-e9w-epra14-18dv3-w1",
-    "name": "DAIKIN ALTHERMA 3 H HT F ETVX – E6V/E9W+EPRA14 -18DV3/W1",
+    "name": "DAIKIN ALTHERMA 3 H HT F ETVX - E6V/E9W+EPRA14 -18DV3/W1",
     "category": "Heat Pump",
     "brand": "Daikin",
     "image": "/hardware/daikin/altherma-3-h-ht-f-etvx-e6v.jpg",
@@ -72,7 +72,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-daikin-altherma-3-h-ht-w-etbx-e6v-e9w-epra14-18dv3-w1",
-    "name": "DAIKIN ALTHERMA 3 H HT W ETBX – E6V/E9W + EPRA14-18DV3/W1",
+    "name": "DAIKIN ALTHERMA 3 H HT W ETBX - E6V/E9W + EPRA14-18DV3/W1",
     "category": "Heat Pump",
     "brand": "Daikin",
     "image": "/hardware/daikin/altherma-3-h-ht-w-etbx-e6v.jpg",
@@ -102,7 +102,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-daikin-altherma-3-h-mt-w-etbx-12e6v-e9w-epra08-12ev3-w1",
-    "name": "DAIKIN ALTHERMA 3 H MT W ETBX – 12E6V/E9W+EPRA08-12EV3/W1",
+    "name": "DAIKIN ALTHERMA 3 H MT W ETBX - 12E6V/E9W+EPRA08-12EV3/W1",
     "category": "Heat Pump",
     "brand": "Daikin",
     "image": "/hardware/daikin/altherma-3-h-mt-w-etbx-12e6v.jpg",
@@ -112,7 +112,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-daikin-altherma-3-m-ebla09-16d3v3",
-    "name": "DAIKIN ALTHERMA 3 M – EBLA09-16D3V3",
+    "name": "DAIKIN ALTHERMA 3 M - EBLA09-16D3V3",
     "category": "Heat Pump",
     "brand": "Daikin",
     "image": "/hardware/daikin/altherma-3-m-ebla09-16d3v3.png",
@@ -142,7 +142,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-emura-new-ftxj-aw-ftxj-as-ftxj-ab",
-    "name": "EMURA NEW – FTXJ-AW | FTXJ-AS | FTXJ-AB",
+    "name": "EMURA NEW - FTXJ-AW | FTXJ-AS | FTXJ-AB",
     "category": "Air Conditioning",
     "brand": "Daikin",
     "image": "/hardware/daikin/emura-new-ftxj-aw-ftxj-as-ftxj.jpg",
@@ -152,7 +152,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-perfera-ftxm-a-r",
-    "name": "PERFERA – FTXM-A-R",
+    "name": "PERFERA - FTXM-A-R",
     "category": "Air Conditioning",
     "brand": "Daikin",
     "image": "/hardware/daikin/perfera-ftxm-a-r.jpg",
@@ -162,7 +162,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-perfera-fvxm-a9",
-    "name": "PERFERA – FVXM-A9",
+    "name": "PERFERA - FVXM-A9",
     "category": "Air Conditioning",
     "brand": "Daikin",
     "image": "/hardware/daikin/perfera-fvxm-a9.jpg",
@@ -182,7 +182,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-sensira-ftxc-d",
-    "name": "SENSIRA – FTXC-D",
+    "name": "SENSIRA - FTXC-D",
     "category": "Air Conditioning",
     "brand": "Daikin",
     "image": "/hardware/daikin/sensira-ftxc-d.jpg",
@@ -192,7 +192,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-stylish-ftxa-cw-ftxa-cs-ftxa-cb",
-    "name": "STYLISH – FTXA-CW | FTXA-CS | FTXA-CB",
+    "name": "STYLISH - FTXA-CW | FTXA-CS | FTXA-CB",
     "category": "Air Conditioning",
     "brand": "Daikin",
     "image": "/hardware/daikin/stylish-ftxa-cw-ftxa-cs-ftxa-cb.jpg",
@@ -202,7 +202,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-ururu-sarara-ftxz-n",
-    "name": "URURU SARARA – FTXZ-N",
+    "name": "URURU SARARA - FTXZ-N",
     "category": "Air Conditioning",
     "brand": "Daikin",
     "image": "/hardware/daikin/ururu-sarara-ftxz-n.jpg",
@@ -262,13 +262,13 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-air-purifier-and-humidifier-mck55w",
-    "name": "AIR PURIFIER AND HUMIDIFIER – MCK55W",
+    "name": "AIR PURIFIER AND HUMIDIFIER - MCK55W",
     "category": "Air Purifier",
     "brand": "Daikin",
     "image": "/hardware/daikin/air-purifier-and-humidifier-mck55w.jpg",
     "uiServiceTab": "Inverter Air Conditioners",
     "originalLink": "https://ecovent.com.mk/product/air-purifier-and-humidifier-mck55w/",
-    "description": "**Type:** Air purifier with humidification\n\nDaikin MCK55W is a humidifying air purifier that combines Flash Streamer air purification with an incorporated water tank for humidity comfort.\n\n## Key Features\n\n- Humidification from incorporated water tank\n- Flash Streamer air purification\n- Breaks down allergens such as pollen and fungal allergens\n- Odour removal\n- Cleaner indoor air for homes and offices\n\n## Technical Specifications\n\n| Parameter | Value |\n| :--- | :--- |\n| Model | MCK55WVM |\n| Type | humidifying air purifier |\n| Water Tank Capacity | 2.7 L |\n| Airflow Air Purifying Turbo | 330 m³/h |\n| Airflow Air Purifying Medium | 192 m³/h |\n| Airflow Air Purifying Low | 120 m³/h |\n| Airflow Air Purifying Silent | 54 m³/h |\n| Sound Pressure Air Purifying | 19–53 dBA depending on fan setting |\n| Sound Pressure Humidifying | 25–53 dBA depending on fan setting |\n| Dimensions | 700 x 270 x 270 mm |\n| Weight | 9.5 kg |\n\n**Model Codes:** MCK55W\n\n[View Official Product Page](https://www.daikin.eu/en_us/products/product.html/MCK55W.html)"
+    "description": "**Type:** Air purifier with humidification\n\nDaikin MCK55W is a humidifying air purifier that combines Flash Streamer air purification with an incorporated water tank for humidity comfort.\n\n## Key Features\n\n- Humidification from incorporated water tank\n- Flash Streamer air purification\n- Breaks down allergens such as pollen and fungal allergens\n- Odour removal\n- Cleaner indoor air for homes and offices\n\n## Technical Specifications\n\n| Parameter | Value |\n| :--- | :--- |\n| Model | MCK55WVM |\n| Type | humidifying air purifier |\n| Water Tank Capacity | 2.7 L |\n| Airflow Air Purifying Turbo | 330 m³/h |\n| Airflow Air Purifying Medium | 192 m³/h |\n| Airflow Air Purifying Low | 120 m³/h |\n| Airflow Air Purifying Silent | 54 m³/h |\n| Sound Pressure Air Purifying | 19-53 dBA depending on fan setting |\n| Sound Pressure Humidifying | 25-53 dBA depending on fan setting |\n| Dimensions | 700 x 270 x 270 mm |\n| Weight | 9.5 kg |\n\n**Model Codes:** MCK55W\n\n[View Official Product Page](https://www.daikin.eu/en_us/products/product.html/MCK55W.html)"
   },
   {
     "id": "daikin-streamer-technology-air-purifier-mc30y",
@@ -302,7 +302,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-madoka-brc1h519w-brc1h519s-brc1h519b",
-    "name": "MADOKA – BRC1H519W | BRC1H519S |  BRC1H519B",
+    "name": "MADOKA - BRC1H519W | BRC1H519S |  BRC1H519B",
     "category": "Control",
     "brand": "Daikin",
     "image": "/hardware/daikin/madoka-brc1h519w-brc1h519s-brc1h519b.jpg",
@@ -322,7 +322,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-daikin-altherma-hpc-fwxv-at-v3",
-    "name": "DAIKIN ALTHERMA HPC – FWXV-AT V3",
+    "name": "DAIKIN ALTHERMA HPC - FWXV-AT V3",
     "category": "Fan Coil",
     "brand": "Daikin",
     "image": "/hardware/daikin/altherma-hpc-fwxv-at-v3.png",
@@ -338,7 +338,7 @@ export const hardwareData: HardwareItem[] = [
     "image": "/hardware/daikin/fancoiler-fwv-daf.png",
     "uiServiceTab": "Commercial Heating & Cooling",
     "originalLink": "https://ecovent.com.mk/product/daikin-fancoiler-fwv-daf/",
-    "description": "**Type:** Fan coil unit\n\nDaikin FWV-DAF is a vertical wall-mounted fan coil unit with an AC fan motor, designed for hydronic heating and cooling systems.\n\n## Key Features\n\n- Quick fixing system for wall-mounted installation\n- Fast-on electrical connections without tools\n- Removable air filter for cleaning\n- Electric heater option up to 2 kW without relay\n- Optional pre-assembled 3-way/4-port on/off valves\n- Insulated valve packages with no extra drain pan required\n\n## Technical Specifications\n\n| Parameter | Value |\n| :--- | :--- |\n| Cooling Capacity Range | 1.46–8.02 kW from Daikin portfolio data for FWV-DAT/DAF |\n| Heating Capacity Range | 1.90–10.03 kW from Daikin portfolio data for FWV-DAT/DAF |\n| Mounting | vertical wall-mounted |\n\n**Model Codes:** FWV-DAF\n\n[View Official Product Page](https://www.daikin.eu/en_us/products/product.html/FWV-DAF.html)"
+    "description": "**Type:** Fan coil unit\n\nDaikin FWV-DAF is a vertical wall-mounted fan coil unit with an AC fan motor, designed for hydronic heating and cooling systems.\n\n## Key Features\n\n- Quick fixing system for wall-mounted installation\n- Fast-on electrical connections without tools\n- Removable air filter for cleaning\n- Electric heater option up to 2 kW without relay\n- Optional pre-assembled 3-way/4-port on/off valves\n- Insulated valve packages with no extra drain pan required\n\n## Technical Specifications\n\n| Parameter | Value |\n| :--- | :--- |\n| Cooling Capacity Range | 1.46-8.02 kW from Daikin portfolio data for FWV-DAT/DAF |\n| Heating Capacity Range | 1.90-10.03 kW from Daikin portfolio data for FWV-DAT/DAF |\n| Mounting | vertical wall-mounted |\n\n**Model Codes:** FWV-DAF\n\n[View Official Product Page](https://www.daikin.eu/en_us/products/product.html/FWV-DAF.html)"
   },
   {
     "id": "daikin-daikin-sky-air-fba-a-9-",
@@ -378,7 +378,7 @@ export const hardwareData: HardwareItem[] = [
     "image": "/hardware/daikin/sky-air-ffa-a.png",
     "uiServiceTab": "Commercial Heating & Cooling",
     "originalLink": "https://ecovent.com.mk/product/daikin-sky-air-ffa-a/",
-    "description": "**Type:** Compact cassette indoor unit\n\nDaikin Sky Air FFA-A is a fully flat cassette indoor unit for commercial ceiling installations, integrating into standard architectural ceiling tiles.\n\n## Key Features\n\n- Fully flat integration into standard ceiling tiles\n- Presence and floor sensor\n- Home leave operation\n- Draught prevention\n- Individual flap control\n- Onecta app support optional\n- Fan-only mode\n- Auto cooling-heating changeover\n- Whisper quiet operation\n\n## Technical Specifications\n\n| Parameter | Value |\n| :--- | :--- |\n| Unit Dimensions | 260 x 575 x 575 mm on FFA-A9 table |\n| Unit Weight | 16.0–17.5 kg depending on model |\n| Airflow Cooling High | 9.0–14.5 m³/min depending on model |\n| Sound Pressure Cooling Low | 25–32 dBA depending on model |\n| Efficiency | up to A++ in cooling/heating with RZAG-A combination |\n\n**Model Codes:** FFA-A, FFA-A9\n\n[View Official Product Page](https://www.daikin.eu/en_us/products/product.html/FFA-A.html)"
+    "description": "**Type:** Compact cassette indoor unit\n\nDaikin Sky Air FFA-A is a fully flat cassette indoor unit for commercial ceiling installations, integrating into standard architectural ceiling tiles.\n\n## Key Features\n\n- Fully flat integration into standard ceiling tiles\n- Presence and floor sensor\n- Home leave operation\n- Draught prevention\n- Individual flap control\n- Onecta app support optional\n- Fan-only mode\n- Auto cooling-heating changeover\n- Whisper quiet operation\n\n## Technical Specifications\n\n| Parameter | Value |\n| :--- | :--- |\n| Unit Dimensions | 260 x 575 x 575 mm on FFA-A9 table |\n| Unit Weight | 16.0-17.5 kg depending on model |\n| Airflow Cooling High | 9.0-14.5 m³/min depending on model |\n| Sound Pressure Cooling Low | 25-32 dBA depending on model |\n| Efficiency | up to A++ in cooling/heating with RZAG-A combination |\n\n**Model Codes:** FFA-A, FFA-A9\n\n[View Official Product Page](https://www.daikin.eu/en_us/products/product.html/FFA-A.html)"
   },
   {
     "id": "daikin-daikin-sky-air-fha-a",
@@ -402,7 +402,7 @@ export const hardwareData: HardwareItem[] = [
   },
   {
     "id": "daikin-daikin-vrv-iv-rxyq-t9",
-    "name": "DAIKIN VRV IV – RXYQ-T9",
+    "name": "DAIKIN VRV IV - RXYQ-T9",
     "category": "VRV",
     "brand": "Daikin",
     "image": "/hardware/daikin/vrv-iv-rxyq-t9.png",
@@ -419,16 +419,6 @@ export const hardwareData: HardwareItem[] = [
     "uiServiceTab": "Commercial Heating & Cooling",
     "originalLink": "https://ecovent.com.mk/product/bvn-b5pam-500/",
     "description": "**Type:** Industrial axial fan\n\nBVN B5PAM 500 is a single-phase square-cased industrial axial fan for exhaust air, fresh air and air-circulation applications.\n\n## Key Features\n\n- Industrial axial fan\n- Electrostatic powder-coated sheet-metal case and propeller\n- External rotor motor with closed structure\n- Suitable for exhausting indoor air or fresh-air supply\n- Can be mounted on windows and walls\n- Speed control possible with optional linear voltage regulator\n\n## Technical Specifications\n\n| Parameter | Value |\n| :--- | :--- |\n| Airflow | 8,500 m³/h |\n| Max Static Pressure | 300 Pa |\n| Nominal Power | 550 W |\n| Rpm | 1365 rpm |\n| Nominal Current | 3.3 A |\n| Voltage | 230 V / 50 Hz |\n| Sound Pressure | 68 dB |\n| Diameter | Ø500 |\n| Weight | 16.6 kg |\n| Temperature Range | -20°C to 40°C |\n| Ip Rating | IP55 |\n\n**Model Codes:** B5PAM 500\n\n[View Official Product Page](https://ecovent.com.mk/product/bvn-b5pam-500/)"
-  },
-  {
-    "id": "daikin-chillers",
-    "name": "CHILLERS",
-    "category": "Chiller",
-    "brand": "Daikin",
-    "image": "/hardware/daikin/chillers.png",
-    "uiServiceTab": "Commercial Heating & Cooling",
-    "originalLink": "https://ecovent.com.mk/product/chillers/",
-    "description": "**Type:** Chiller / central cooling equipment\n\nDaikin chillers provide central chilled-water cooling and heat-pump solutions for commercial, industrial and process applications.\n\n## Key Features\n\n- Centralized chilled-water production\n- Cooling-only or heat-pump versions depending on range\n- Full inverter technology on selected ranges\n- R-32 chiller ranges available\n- Used for commercial, industrial and process cooling applications\n\n## Technical Specifications\n\n| Parameter | Value |\n| :--- | :--- |\n| Small Inverter Chiller Capacity | 16–90 kW cooling/heating range on Daikin R-32 Small Inverter Chiller page |\n| R32 Small Inverter Chiller Seer | up to 5.41 |\n| R32 Small Inverter Chiller Scop | up to 4.19 |\n\n**Model Codes:** Chiller product group\n\n[View Official Product Page](https://www.daikin.eu/en_us/product-group/chillers/chiller-and-heat-pump-series/r-32-small-inverter-chiller.html)"
   },
   {
     "id": "lg-lg-therma-v-monobloc",

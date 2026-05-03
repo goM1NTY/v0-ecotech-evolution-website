@@ -21,7 +21,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-[100dvh] flex flex-col pt-24 lg:pt-0 overflow-hidden">
+    <section className="relative min-h-[100svh] flex flex-col pt-24 lg:pt-0 overflow-hidden">
       {/* Background Image Setup - Responsive art direction */}
       <div className="absolute inset-0 z-0">
         {/* Mobile portrait image */}
@@ -130,7 +130,6 @@ export function Hero() {
               width={220}
               height={147}
               className="mt-8 sm:mt-8 h-auto w-28 sm:w-52 object-contain"
-              priority
             />
           </motion.div>
         </div>

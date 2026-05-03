@@ -72,7 +72,6 @@ export function About() {
               fill
               className="object-cover z-0 opacity-90 transition-transform duration-[2s] group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, 66vw"
-              priority
             />
             {/* Burn-in vignette gradient for extreme readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/40 to-transparent z-10 opacity-90" />
@@ -86,7 +85,7 @@ export function About() {
                 Precision in Every Detail.
               </h3>
               <p className="text-gray-300 text-sm sm:text-lg max-w-xl font-light hidden sm:block">
-                We engineer complete solutions — from load calculations and thermal mapping to final system commissioning.
+                We engineer complete solutions, from load calculations and thermal mapping to final system commissioning.
               </p>
             </div>
             <div className="absolute inset-0 z-30 ring-1 ring-inset ring-white/10 rounded-[2rem]" />

@@ -89,17 +89,6 @@ export function Projects() {
     })
   }
 
-  const scrollProjectTabs = (direction: "left" | "right") => {
-    const node = projectTabsRef.current
-    if (!node) return
-
-    node.scrollBy({
-      left: direction === "right" ? 180 : -180,
-      behavior: "smooth",
-    })
-    window.setTimeout(updateProjectTabScroll, 250)
-  }
-
   const scrollMobileImageTo = (index: number) => {
     const node = mobileImageTrackRef.current
     if (!node) return
@@ -197,7 +186,7 @@ export function Projects() {
           <div
             ref={projectTabsRef}
             onScroll={updateProjectTabScroll}
-            className="flex gap-2 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-2 overflow-x-auto px-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {projects.map((project, idx) => {
               const isActive = idx === currentProjectIndex
@@ -216,26 +205,54 @@ export function Projects() {
               )
             })}
           </div>
-          {projectTabScroll.left && (
-            <button
-              type="button"
-              onClick={() => scrollProjectTabs("left")}
-              aria-label="Previous deployments"
-              className="absolute left-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-gray-700 shadow-md ring-1 ring-gray-200/80 backdrop-blur"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-          )}
-          {projectTabScroll.right && (
-            <button
-              type="button"
-              onClick={() => scrollProjectTabs("right")}
-              aria-label="More deployments"
-              className="absolute right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-gray-700 shadow-md ring-1 ring-gray-200/80 backdrop-blur"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          )}
+
+          {/* Gradient Overlays for scroll indication */}
+          <div 
+            className={`absolute left-0 top-0 bottom-3 w-8 z-10 bg-gradient-to-r from-[#FBFBFD]/90 to-transparent pointer-events-none transition-opacity duration-300 ${
+              projectTabScroll.left ? "opacity-100" : "opacity-0"
+            }`}
+          />
+          <div 
+            className={`absolute right-0 top-0 bottom-3 w-12 z-10 bg-gradient-to-l from-[#FBFBFD]/90 to-transparent pointer-events-none transition-opacity duration-300 ${
+              projectTabScroll.right ? "opacity-100" : "opacity-0"
+            }`}
+          />
+          <AnimatePresence>
+            {projectTabScroll.left && (
+              <motion.div
+                key="project-tabs-left-cue"
+                initial={{ opacity: 0, scale: 0.88 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.88 }}
+                className="absolute left-3 top-1/2 z-20 flex h-7 w-7 -translate-y-[calc(50%+0.375rem)] items-center justify-center rounded-full border border-gray-200 bg-white/90 text-gray-400 shadow-sm backdrop-blur pointer-events-none"
+                aria-hidden="true"
+              >
+                <motion.span
+                  animate={{ x: [0, -2, 0] }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <ChevronLeft className="h-3.5 w-3.5" />
+                </motion.span>
+              </motion.div>
+            )}
+            {projectTabScroll.right && (
+              <motion.div
+                key="project-tabs-right-cue"
+                initial={{ opacity: 0, scale: 0.88 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.88 }}
+                className="absolute right-3 top-1/2 z-20 flex h-7 w-7 -translate-y-[calc(50%+0.375rem)] items-center justify-center rounded-full border border-gray-200 bg-white/90 text-gray-400 shadow-sm backdrop-blur pointer-events-none"
+                aria-hidden="true"
+              >
+                <motion.span
+                  animate={{ x: [0, 2, 0] }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </motion.span>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Desktop: Sidebar + Image grid */}
@@ -296,43 +313,41 @@ export function Projects() {
                 ))}
               </div>
 
-              <div className="hidden h-full lg:block">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={`${currentProject.id}-${currentImageIndex}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }} 
-                    drag="x"
-                    dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={0.2}
-                    onDragEnd={handleImageSwipe}
-                    className="absolute inset-0 cursor-grab touch-pan-y active:cursor-grabbing"
-                  >
+              <motion.div
+                className="hidden h-full cursor-grab touch-pan-y active:cursor-grabbing lg:flex"
+                animate={{ x: `-${currentImageIndex * 100}%` }}
+                transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.16}
+                onDragEnd={handleImageSwipe}
+              >
+                {currentProject.images.map((image, idx) => (
+                  <div key={image} className="relative h-full w-full flex-none">
                     <Image
-                      src={currentProject.images[currentImageIndex]}
-                      alt={`${currentProject.title} rendering`}
+                      src={image}
+                      alt={`${currentProject.title} rendering ${idx + 1}`}
                       fill
                       sizes="70vw"
-                      className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-[1.02]"
+                      className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.01]"
+                      priority={currentProjectIndex === 0 && idx === 0}
                     />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
+                  </div>
+                ))}
+              </motion.div>
 
               {/* Nested Carousel Controls */}
               {currentProject.images.length > 1 && (
                 <>
                   <button
                     onClick={prevImage}
-                    className="absolute left-3 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/70 text-gray-800 shadow-sm backdrop-blur-md transition-all hover:bg-white lg:flex lg:opacity-0 lg:group-hover:opacity-100 focus:opacity-100"
+                    className="absolute left-3 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-gray-800 shadow-md ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white lg:flex"
                   >
                     <ChevronLeft className="w-5 h-5" strokeWidth={2} />
                   </button>
                   <button
                     onClick={nextImage}
-                    className="absolute right-3 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/70 text-gray-800 shadow-sm backdrop-blur-md transition-all hover:bg-white lg:flex lg:opacity-0 lg:group-hover:opacity-100 focus:opacity-100"
+                    className="absolute right-3 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-gray-800 shadow-md ring-1 ring-black/5 backdrop-blur-md transition-all hover:bg-white lg:flex"
                   >
                     <ChevronRight className="w-5 h-5" strokeWidth={2} />
                   </button>
