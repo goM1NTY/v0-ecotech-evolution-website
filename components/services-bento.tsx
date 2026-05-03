@@ -47,6 +47,11 @@ const services = [
   },
 ]
 
+const revealTransition = {
+  duration: 0.55,
+  ease: [0.22, 1, 0.36, 1] as const,
+}
+
 export function ServicesBento() {
   return (
     <section className="py-24 lg:py-32 bg-zinc-50 border-t border-gray-100">
@@ -78,11 +83,11 @@ export function ServicesBento() {
             return (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`group relative overflow-hidden rounded-[2rem] bg-gray-900 flex flex-col justify-end p-6 md:p-8 shadow-sm hover:shadow-2xl transition-all duration-500 ${service.className}`}
+                viewport={{ once: true, amount: 0.28, margin: "0px 0px -12% 0px" }}
+                transition={{ ...revealTransition, delay: index * 0.08 }}
+                className={`group relative min-h-[420px] overflow-hidden rounded-[2rem] bg-gray-900 flex flex-col justify-end p-6 md:min-h-0 md:p-8 shadow-sm hover:shadow-2xl transition-shadow duration-500 will-change-transform ${service.className}`}
               >
                 {/* Background Image */}
                 <Image
