@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { useSearchParams, useRouter } from "next/navigation"
 import { hardwareData, HardwareItem } from "@/lib/data/hardware"
-import { X, ChevronRight, ExternalLink, Zap, Sun, Wind, Factory } from "lucide-react"
+import { X, ChevronRight, ExternalLink, Zap, Sun, Wind, Factory, Star } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 
@@ -14,19 +14,22 @@ const BRANDS = [
   { 
     id: "Daikin", 
     label: "Daikin",
-    tagline: "Premium Partner",
+    tagline: "Engineered Climate Systems",
+    description: "A focused Daikin selection for efficient residential and commercial climate projects.",
     accent: "#0097D1",
   },
   { 
     id: "LG", 
     label: "LG",
-    tagline: "Innovation Partner",
+    tagline: "Connected Comfort Systems",
+    description: "Modern LG systems selected for smart controls, comfort, and adaptable installations.",
     accent: "#A50034",
   },
   { 
     id: "Midea", 
     label: "Midea",
-    tagline: "Value Engineering",
+    tagline: "Efficient Project Solutions",
+    description: "Reliable Midea options for practical performance across everyday heating and cooling needs.",
     accent: "#00A3E0",
   },
 ]
@@ -136,36 +139,62 @@ export function HardwareCatalog() {
       <div className="mb-12">
         <span className="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-5 block">Select Manufacturer</span>
         <div className="grid grid-cols-3 gap-4">
-          {BRANDS.map(brand => (
-            <button
-              key={brand.id}
-              onClick={() => handleBrandChange(brand.id)}
-              className={`relative group rounded-2xl p-5 sm:p-6 text-left transition-all duration-300 ${
-                activeBrand === brand.id
-                  ? "bg-gray-900 shadow-2xl scale-[1.02]"
-                  : "bg-white shadow-sm hover:shadow-md"
-              }`}
-            >
-              <div className={`text-lg sm:text-2xl font-extrabold tracking-tight transition-colors ${
-                activeBrand === brand.id ? "text-white" : "text-gray-900"
-              }`}>
-                {brand.label}
-              </div>
-              <div className={`text-xs sm:text-sm font-medium mt-1 transition-colors ${
-                activeBrand === brand.id ? "text-gray-400" : "text-gray-500"
-              }`}>
-                {brand.tagline}
-              </div>
-              {activeBrand === brand.id && (
-                <motion.div
-                  layoutId="brand-indicator"
-                  className="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-[#7CB342]"
-                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                />
-              )}
-            </button>
-          ))}
+          {BRANDS.map(brand => {
+            const isActive = activeBrand === brand.id
+
+            return (
+              <button
+                key={brand.id}
+                onClick={() => handleBrandChange(brand.id)}
+                className={`relative group rounded-2xl p-5 sm:p-6 text-left transition-all duration-300 ${
+                  isActive
+                    ? "bg-gray-900 shadow-2xl ring-1 ring-[#7CB342]"
+                    : "bg-white shadow-sm hover:shadow-md"
+                }`}
+              >
+                <div className={`flex items-center text-lg sm:text-2xl font-extrabold tracking-tight transition-colors ${
+                  isActive ? "text-white" : "text-gray-900"
+                }`}>
+                  {brand.label}
+                  {brand.id === "Daikin" && (
+                    <Star
+                      className={`ml-2 h-4 w-4 ${
+                        isActive ? "fill-[#7CB342] text-[#7CB342]" : "fill-[#7CB342]/20 text-[#7CB342]"
+                      }`}
+                      aria-hidden="true"
+                    />
+                  )}
+                </div>
+                <div className={`text-xs sm:text-sm font-medium mt-1 transition-colors ${
+                  isActive ? "text-gray-400" : "text-gray-500"
+                }`}>
+                  {brand.tagline}
+                </div>
+                {isActive && (
+                  <motion.div
+                    layoutId="brand-indicator"
+                    className="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-[#7CB342]"
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  />
+                )}
+              </button>
+            )
+          })}
         </div>
+        {activeBrandConfig && (
+          <motion.div
+            key={activeBrandConfig.id}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+            className="mt-5 flex items-start gap-3 border-l-2 border-[#7CB342] pl-4"
+          >
+            <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#7CB342]" />
+            <p className="max-w-3xl text-sm font-medium leading-6 text-gray-600">
+              {activeBrandConfig.description}
+            </p>
+          </motion.div>
+        )}
       </div>
 
       {/* ═══ SERVICE TABS ═══ */}
