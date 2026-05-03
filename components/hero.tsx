@@ -30,6 +30,7 @@ export function Hero() {
           alt="Solar panel installation"
           fill
           priority
+          sizes="100vw"
           className="object-cover md:hidden"
         />
         {/* Desktop landscape image */}
@@ -38,6 +39,7 @@ export function Hero() {
           alt="Modern house with solar panels"
           fill
           priority
+          sizes="100vw"
           className="object-cover object-center hidden md:block"
         />
         {/* Dark overlay gradient for readability */}

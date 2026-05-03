@@ -182,8 +182,8 @@ export function Projects() {
                     src={currentProject.images[currentImageIndex]}
                     alt={`${currentProject.title} rendering`}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 70vw"
                     className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-[1.02]"
-                    priority
                   />
                 </motion.div>
               </AnimatePresence>
