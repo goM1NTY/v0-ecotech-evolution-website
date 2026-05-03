@@ -400,16 +400,7 @@ export const hardwareData: HardwareItem[] = [
     "originalLink": "https://ecovent.com.mk/product/daikin-sky-air-fna-a/",
     "description": "**Type:** Concealed floor-standing indoor unit\n\nDaikin Sky Air FNA-A9 is a concealed floor-standing indoor unit for commercial installations where discreet low-level placement is needed.\n\n## Key Features\n\n- Concealed floor-standing indoor unit\n- Compatible with wired remote controllers\n- Infrared remote control option\n- Designed for Sky Air commercial systems\n\n## Technical Specifications\n\n| Parameter | Value |\n| :--- | :--- |\n| Control Systems | wired remote controllers BRC1H52W/S/K, BRC1E53A/B/C, BRC1D52; infrared remote BRC4C65 |\n| Piping Liquid | 6.35 mm OD |\n| Piping Gas | 9.52 mm or 12.7 mm OD depending on model |\n\n**Model Codes:** FNA-A9\n\n[View Official Product Page](https://www.daikin.eu/en_us/products/product.table.html/fna-a9.html)"
   },
-  {
-    "id": "daikin-solar-pv-panels",
-    "name": "SOLAR PV PANELS",
-    "category": "Solar PV",
-    "brand": "Daikin",
-    "image": "/hardware/daikin-solar-pv-panels.png",
-    "uiServiceTab": "Solar PV",
-    "originalLink": "https://ecovent.com.mk/product/solar-pv-panels/",
-    "description": "**Type:** Solar photovoltaic modules\n\nSolar photovoltaic panels convert sunlight into electricity and are used as part of residential or commercial PV systems with inverters, mounting hardware and electrical protection equipment.\n\n## Key Features\n\n- Converts sunlight into electrical energy\n- Can be used on rooftops or ground-mounted systems\n- Works together with inverter and mounting system\n- Supports renewable electricity generation\n\n## Technical Specifications\n\n| Parameter | Value |\n| :--- | :--- |\n| Technology | solar photovoltaic modules |\n| System Components | PV modules, inverter, mounting structure, cabling and protection equipment |\n| Exact Panel Model | not specified in the uploaded product list |\n\n**Model Codes:** Photovoltaic modules / panels\n\n[View Official Product Page](https://www.energy.gov/eere/solar/solar-photovoltaic-technology-basics)"
-  },
+
   {
     "id": "daikin-daikin-vrv-iv-rxyq-t9",
     "name": "DAIKIN VRV IV – RXYQ-T9",

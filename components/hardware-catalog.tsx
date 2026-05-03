@@ -32,10 +32,9 @@ const BRANDS = [
 ]
 
 const SERVICE_TABS = [
-  { id: "Solar PV", label: "Solar PV", icon: Sun },
   { id: "Heat Pumps", label: "Heat Pumps", icon: Zap },
   { id: "Inverter Air Conditioners", label: "Air Conditioning", icon: Wind },
-  { id: "Commercial Heating & Cooling", label: "Commercial", icon: Factory },
+  { id: "Commercial Heating & Cooling", label: "Heating and Cooling", icon: Factory },
 ]
 
 export function HardwareCatalog() {
@@ -68,9 +67,23 @@ export function HardwareCatalog() {
   }
 
   const handleBrandChange = (brand: string) => {
+    const brandProds = hardwareData.filter(item => item.brand === brand)
+    const hasProductsInCurrentTab = brandProds.some(item => item.uiServiceTab === activeTab)
+    
+    let targetTab = activeTab
+    if (!hasProductsInCurrentTab) {
+      const tabWithProducts = SERVICE_TABS.find(tab => 
+        brandProds.some(item => item.uiServiceTab === tab.id)
+      )
+      if (tabWithProducts) {
+        targetTab = tabWithProducts.id
+        setActiveTab(targetTab)
+      }
+    }
+
     setActiveBrand(brand)
     setActiveCategory("All")
-    router.push(`/equipment?tab=${encodeURIComponent(activeTab)}&brand=${encodeURIComponent(brand)}`, { scroll: false })
+    router.push(`/equipment?tab=${encodeURIComponent(targetTab)}&brand=${encodeURIComponent(brand)}`, { scroll: false })
   }
 
   // Filter by brand first, then by tab
@@ -156,43 +169,38 @@ export function HardwareCatalog() {
       </div>
 
       {/* ═══ SERVICE TABS ═══ */}
-      <div className="mb-10">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {SERVICE_TABS.map(tab => {
-            const Icon = tab.icon
-            const count = tabCounts[tab.id] || 0
-            const isActive = activeTab === tab.id
-            return (
-              <button
-                key={tab.id}
-                onClick={() => handleTabChange(tab.id)}
-                disabled={count === 0}
-                className={`group relative rounded-xl p-4 text-left transition-all duration-300 ${
-                  isActive
-                    ? "bg-[#7CB342]/10 shadow-sm"
-                    : count === 0
-                      ? "bg-gray-100 opacity-40 cursor-not-allowed"
-                      : "bg-white shadow-sm hover:shadow-md"
-                }`}
-              >
-                <Icon className={`w-5 h-5 mb-2 ${isActive ? "text-[#7CB342]" : "text-gray-400"}`} />
-                <div className={`text-sm font-bold ${isActive ? "text-gray-900" : "text-gray-700"}`}>
+      <div className="mb-10 flex flex-wrap justify-center gap-3 sm:gap-4">
+        {SERVICE_TABS.map(tab => {
+          const Icon = tab.icon
+          const count = tabCounts[tab.id] || 0
+          const isActive = activeTab === tab.id
+          return (
+            <button
+              key={tab.id}
+              onClick={() => handleTabChange(tab.id)}
+              disabled={count === 0}
+              className={`group relative flex items-center gap-3 rounded-full py-3 px-6 transition-all duration-300 ${
+                isActive
+                  ? "bg-[#7CB342]/10 shadow-sm ring-1 ring-[#7CB342]/20"
+                  : count === 0
+                    ? "bg-gray-100 opacity-40 cursor-not-allowed"
+                    : "bg-white shadow-sm hover:shadow-md hover:bg-gray-50"
+              }`}
+            >
+              <div className={`p-2 rounded-full ${isActive ? "bg-[#7CB342]/20 text-[#7CB342]" : "bg-gray-100 text-gray-500"}`}>
+                <Icon className="w-4 h-4" />
+              </div>
+              <div className="text-left">
+                <div className={`text-sm font-bold leading-none ${isActive ? "text-gray-900" : "text-gray-700"}`}>
                   {tab.label}
                 </div>
-                <div className={`text-xs mt-0.5 ${isActive ? "text-[#7CB342]" : "text-gray-400"}`}>
+                <div className={`text-[11px] font-medium mt-1 leading-none ${isActive ? "text-[#7CB342]" : "text-gray-400"}`}>
                   {count} {count === 1 ? "product" : "products"}
                 </div>
-                {isActive && (
-                  <motion.div
-                    layoutId="tab-indicator"
-                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-[#7CB342] rounded-full"
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  />
-                )}
-              </button>
-            )
-          })}
-        </div>
+              </div>
+            </button>
+          )
+        })}
       </div>
 
       {/* ═══ SUB-CATEGORY PILLS ═══ */}

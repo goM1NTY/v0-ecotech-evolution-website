@@ -13,7 +13,7 @@ const services = [
     features: ["Grid-tied systems", "Battery storage"],
     image: "/services/solar-real.png",
     className: "col-span-1",
-    href: "/equipment?tab=Solar%20PV"
+    href: "/#projects"
   },
   {
     id: "heatpump",
