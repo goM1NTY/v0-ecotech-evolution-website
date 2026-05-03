@@ -1,11 +1,11 @@
 "use client"
 
-import { useState, useEffect, useMemo } from "react"
+import { useState, useEffect, useMemo, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { useSearchParams, useRouter } from "next/navigation"
 import { hardwareData, HardwareItem } from "@/lib/data/hardware"
-import { X, ChevronRight, ExternalLink, Zap, Sun, Wind, Factory, Star } from "lucide-react"
+import { X, ChevronLeft, ChevronRight, ExternalLink, Zap, Sun, Wind, Factory, Star, ArrowDown } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 
@@ -50,6 +50,40 @@ export function HardwareCatalog() {
   const [selectedProduct, setSelectedProduct] = useState<HardwareItem | null>(null)
   const [isZoomed, setIsZoomed] = useState(false)
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 })
+  const productsRef = useRef<HTMLDivElement | null>(null)
+  const categoryScrollerRef = useRef<HTMLDivElement | null>(null)
+  const productRefs = useRef<Array<HTMLDivElement | null>>([])
+  const [categoryScroll, setCategoryScroll] = useState({ left: false, right: false })
+
+  const scrollToProductsOnMobile = () => {
+    if (typeof window === "undefined" || window.innerWidth >= 640) return
+
+    window.setTimeout(() => {
+      productsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+    }, 100)
+  }
+
+  const updateCategoryScroll = () => {
+    const node = categoryScrollerRef.current
+    if (!node) return
+
+    const maxScrollLeft = node.scrollWidth - node.clientWidth
+    setCategoryScroll({
+      left: node.scrollLeft > 4,
+      right: node.scrollLeft < maxScrollLeft - 4,
+    })
+  }
+
+  const scrollCategories = (direction: "left" | "right") => {
+    const node = categoryScrollerRef.current
+    if (!node) return
+
+    node.scrollBy({
+      left: direction === "right" ? 160 : -160,
+      behavior: "smooth",
+    })
+    window.setTimeout(updateCategoryScroll, 250)
+  }
 
   // Initialize from URL params
   useEffect(() => {
@@ -89,6 +123,11 @@ export function HardwareCatalog() {
     router.push(`/equipment?tab=${encodeURIComponent(targetTab)}&brand=${encodeURIComponent(brand)}`, { scroll: false })
   }
 
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category)
+    scrollToProductsOnMobile()
+  }
+
   // Filter by brand first, then by tab
   const brandProducts = useMemo(() => {
     return hardwareData.filter(item => item.brand === activeBrand)
@@ -105,11 +144,30 @@ export function HardwareCatalog() {
     return ["All", ...Array.from(cats)].sort()
   }, [tabProducts])
 
+  useEffect(() => {
+    window.setTimeout(updateCategoryScroll, 0)
+    window.addEventListener("resize", updateCategoryScroll)
+
+    return () => {
+      window.removeEventListener("resize", updateCategoryScroll)
+    }
+  }, [subCategories])
+
   // Final filtered
   const filteredProducts = useMemo(() => {
     if (activeCategory === "All") return tabProducts
     return tabProducts.filter(item => item.category === activeCategory)
   }, [tabProducts, activeCategory])
+
+  const scrollToMiddleProductOnMobile = () => {
+    if (typeof window === "undefined" || window.innerWidth >= 640) return
+
+    const middleIndex = Math.floor((filteredProducts.length - 1) / 2)
+    productRefs.current[middleIndex]?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    })
+  }
 
   // Count products per tab for the active brand
   const tabCounts = useMemo(() => {
@@ -136,9 +194,9 @@ export function HardwareCatalog() {
     <div className="w-full">
 
       {/* ═══ BRAND SELECTOR ═══ */}
-      <div className="mb-12">
+      <div className="mb-8 sm:mb-12">
         <span className="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-5 block">Select Manufacturer</span>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
           {BRANDS.map(brand => {
             const isActive = activeBrand === brand.id
 
@@ -187,7 +245,7 @@ export function HardwareCatalog() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}
-            className="mt-5 flex items-start gap-3 border-l-2 border-[#7CB342] pl-4"
+            className="mt-5 hidden items-start gap-3 border-l-2 border-[#7CB342] pl-4 sm:flex"
           >
             <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#7CB342]" />
             <p className="max-w-3xl text-sm font-medium leading-6 text-gray-600">
@@ -198,7 +256,7 @@ export function HardwareCatalog() {
       </div>
 
       {/* ═══ SERVICE TABS ═══ */}
-      <div className="mb-10 flex flex-wrap justify-center gap-3 sm:gap-4">
+      <div className="mb-8 grid grid-cols-1 gap-2 sm:mb-10 sm:flex sm:flex-wrap sm:justify-center sm:gap-4">
         {SERVICE_TABS.map(tab => {
           const Icon = tab.icon
           const count = tabCounts[tab.id] || 0
@@ -206,9 +264,12 @@ export function HardwareCatalog() {
           return (
             <button
               key={tab.id}
-              onClick={() => handleTabChange(tab.id)}
+              onClick={() => {
+                handleTabChange(tab.id)
+                scrollToProductsOnMobile()
+              }}
               disabled={count === 0}
-              className={`group relative flex items-center gap-3 rounded-full py-3 px-6 transition-all duration-300 ${
+              className={`group relative flex w-full items-center gap-3 rounded-2xl px-4 py-3 transition-all duration-300 sm:w-auto sm:rounded-full sm:px-6 ${
                 isActive
                   ? "bg-[#7CB342]/10 shadow-sm ring-1 ring-[#7CB342]/20"
                   : count === 0
@@ -219,7 +280,7 @@ export function HardwareCatalog() {
               <div className={`p-2 rounded-full ${isActive ? "bg-[#7CB342]/20 text-[#7CB342]" : "bg-gray-100 text-gray-500"}`}>
                 <Icon className="w-4 h-4" />
               </div>
-              <div className="text-left">
+              <div className="min-w-0 flex-1 text-left sm:flex-none">
                 <div className={`text-sm font-bold leading-none ${isActive ? "text-gray-900" : "text-gray-700"}`}>
                   {tab.label}
                 </div>
@@ -227,6 +288,9 @@ export function HardwareCatalog() {
                   {count} {count === 1 ? "product" : "products"}
                 </div>
               </div>
+              {isActive && (
+                <span className="h-2 w-2 rounded-full bg-[#7CB342] sm:hidden" />
+              )}
             </button>
           )
         })}
@@ -234,31 +298,74 @@ export function HardwareCatalog() {
 
       {/* ═══ SUB-CATEGORY PILLS ═══ */}
       {subCategories.length > 2 && (
-        <div className="flex flex-wrap gap-2 mb-8">
-          {subCategories.map(cat => (
+        <div className="relative -mx-6 mb-8 sm:mx-0">
+          <div
+            ref={categoryScrollerRef}
+            onScroll={updateCategoryScroll}
+            className="flex gap-2 overflow-x-auto px-6 pb-2 [scrollbar-width:none] sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0 [&::-webkit-scrollbar]:hidden"
+          >
+            {subCategories.map(cat => (
+              <button
+                key={cat}
+                onClick={() => handleCategoryChange(cat)}
+                className={`shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all ${
+                  activeCategory === cat
+                    ? "bg-gray-900 text-white"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+          {categoryScroll.left && (
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
-                activeCategory === cat
-                  ? "bg-gray-900 text-white"
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-              }`}
+              type="button"
+              onClick={() => scrollCategories("left")}
+              aria-label="Previous product types"
+              className="absolute left-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-gray-700 shadow-md ring-1 ring-gray-200/80 backdrop-blur sm:hidden"
             >
-              {cat}
+              <ChevronLeft className="h-4 w-4" />
             </button>
-          ))}
+          )}
+          {categoryScroll.right && (
+            <button
+              type="button"
+              onClick={() => scrollCategories("right")}
+              aria-label="More product types"
+              className="absolute right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-gray-700 shadow-md ring-1 ring-gray-200/80 backdrop-blur sm:hidden"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          )}
+        </div>
+      )}
+
+      {filteredProducts.length > 1 && (
+        <div className="mb-4 flex justify-center sm:hidden">
+          <button
+            type="button"
+            onClick={scrollToMiddleProductOnMobile}
+            className="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-2 text-[11px] font-semibold text-gray-500 shadow-sm ring-1 ring-gray-200/70 backdrop-blur transition hover:bg-white hover:text-gray-700"
+            aria-label={`Jump to the middle of ${filteredProducts.length} products`}
+          >
+            <span>{filteredProducts.length} products below</span>
+            <ArrowDown className="h-3.5 w-3.5 text-[#7CB342]" />
+          </button>
         </div>
       )}
 
       {/* ═══ PRODUCT GRID (Masonry) ═══ */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
+      <div ref={productsRef} className="scroll-mt-24 columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
         {filteredProducts.map((product, index) => (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.04 }}
             key={product.id}
+            ref={(node) => {
+              productRefs.current[index] = node
+            }}
             onClick={() => setSelectedProduct(product)}
             className="group cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl bg-white shadow-sm mb-6 break-inside-avoid"
           >
