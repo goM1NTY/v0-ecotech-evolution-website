@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { MapPin, Phone, Mail } from "lucide-react"
-import logoImage from "@/assets/logo.png"
+import logoImage from "@/public/images/logo.png"
 
 const footerLinks = {
   services: [

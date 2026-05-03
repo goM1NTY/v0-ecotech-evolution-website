@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { Footer } from "@/components/footer"
-import logoImage from "@/assets/logo.png"
+import logoImage from "@/public/images/logo.png"
 
 export const metadata: Metadata = {
   title: "Terms of Service | EcoTech Evolution",
