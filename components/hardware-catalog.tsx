@@ -233,17 +233,16 @@ export function HardwareCatalog() {
             onClick={() => setSelectedProduct(product)}
             className="group cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl bg-white shadow-sm mb-6 break-inside-avoid"
           >
-            {/* Image - optimized with Next.js Image */}
+            {/* Image - optimized with Next.js Image, natural height for masonry */}
             {product.image ? (
-              <div className="relative w-full aspect-[4/3] overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-contain group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                />
-              </div>
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={800}
+                height={600}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+              />
             ) : (
               <div className="w-full h-48 bg-gray-100 flex items-center justify-center text-gray-300 text-sm">No Image</div>
             )}
