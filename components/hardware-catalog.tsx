@@ -46,6 +46,8 @@ export function HardwareCatalog() {
   const [activeTab, setActiveTab] = useState<string>(SERVICE_TABS[0].id)
   const [activeCategory, setActiveCategory] = useState<string>("All")
   const [selectedProduct, setSelectedProduct] = useState<HardwareItem | null>(null)
+  const [isZoomed, setIsZoomed] = useState(false)
+  const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 })
 
   // Initialize from URL params
   useEffect(() => {
@@ -273,7 +275,7 @@ export function HardwareCatalog() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedProduct(null)}
+              onClick={() => { setSelectedProduct(null); setIsZoomed(false); setZoomPos({ x: 50, y: 50 }); }}
               className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             />
             <motion.div
@@ -281,44 +283,57 @@ export function HardwareCatalog() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 30, scale: 0.95 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col sm:flex-row z-10"
+              className="relative w-full max-w-5xl max-h-[90vh] lg:max-h-[85vh] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row z-10"
             >
               <button
-                onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 z-20 p-2.5 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-500 hover:text-gray-900 transition-colors"
+                onClick={() => { setSelectedProduct(null); setIsZoomed(false); setZoomPos({ x: 50, y: 50 }); }}
+                className="absolute top-4 right-4 z-20 p-2.5 bg-gray-100/80 backdrop-blur-md hover:bg-gray-200 rounded-full text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              {/* Image */}
-              <div className="w-full sm:w-2/5 bg-white p-10 flex items-center justify-center min-h-[280px] sm:min-h-full">
-                <div className="relative w-full h-full aspect-square sm:aspect-auto">
-                  {selectedProduct.image && (
-                    <Image
-                      src={selectedProduct.image}
-                      alt={selectedProduct.name}
-                      fill
-                      className="object-contain"
-                    />
-                  )}
-                </div>
+              {/* Image - e-commerce style dedicated half */}
+              <div 
+                className={`w-full lg:w-1/2 bg-[#F8F9FA] flex items-center justify-center p-8 min-h-[300px] lg:min-h-0 overflow-hidden group ${isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"}`}
+                onClick={(e) => {
+                  if (!isZoomed) {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    setZoomPos({ x, y });
+                    setIsZoomed(true);
+                  } else {
+                    setIsZoomed(false);
+                  }
+                }}
+              >
+                {selectedProduct.image && (
+                  <img
+                    src={selectedProduct.image}
+                    alt={selectedProduct.name}
+                    className={`w-full h-full max-h-[400px] lg:max-h-none object-contain transition-all duration-500 ease-out ${
+                      isZoomed ? "scale-[2.2]" : "scale-100 group-hover:scale-105"
+                    }`}
+                    style={{ transformOrigin: isZoomed ? `${zoomPos.x}% ${zoomPos.y}%` : "center center" }}
+                  />
+                )}
               </div>
 
-              {/* Content */}
-              <div className="w-full sm:w-3/5 p-8 sm:p-10 overflow-y-auto custom-scrollbar">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 bg-[#7CB342]/10 rounded-md text-xs font-extrabold text-[#7CB342] uppercase tracking-wider">
+              {/* Content - right half */}
+              <div className="w-full lg:w-1/2 p-8 lg:p-12 overflow-y-auto custom-scrollbar bg-white">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="px-2.5 py-1 bg-[#7CB342]/10 rounded-md text-[10px] font-extrabold text-[#7CB342] uppercase tracking-wider">
                     {selectedProduct.brand}
                   </span>
-                  <span className="px-3 py-1 bg-gray-100 rounded-md text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  <span className="px-2.5 py-1 bg-gray-100 rounded-md text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
                     {selectedProduct.category}
                   </span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-6 leading-tight">
+                <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 mb-4 leading-tight">
                   {selectedProduct.name}
                 </h2>
 
-                <div className="prose prose-gray prose-sm sm:prose-base prose-p:text-gray-600 prose-li:text-gray-600 prose-headings:text-gray-900 prose-strong:text-gray-800 prose-a:text-[#7CB342] max-w-none">
+                <div className="prose prose-sm prose-gray prose-p:text-gray-600 prose-p:leading-relaxed prose-p:my-2 prose-li:text-gray-600 prose-li:my-0.5 prose-headings:text-gray-900 prose-headings:mt-5 prose-headings:mb-2 prose-strong:text-gray-800 prose-a:text-[#7CB342] prose-table:text-sm prose-th:py-2 prose-td:py-1.5 max-w-none">
                   {selectedProduct.description ? (
                     <ReactMarkdown remarkPlugins={[remarkGfm]}>
                       {selectedProduct.description}
@@ -328,18 +343,6 @@ export function HardwareCatalog() {
                   )}
                 </div>
 
-                {selectedProduct.originalLink && selectedProduct.originalLink !== "Manual Upload" && (
-                  <div className="mt-8 pt-6 border-t border-gray-200">
-                    <a
-                      href={selectedProduct.originalLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm font-semibold text-gray-500 hover:text-[#7CB342] transition-colors"
-                    >
-                      View Original Documentation <ExternalLink className="w-4 h-4 ml-2" />
-                    </a>
-                  </div>
-                )}
               </div>
             </motion.div>
           </div>
