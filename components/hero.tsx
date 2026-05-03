@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import daikinPartnerLogo from "@/assets/dnew.png"
+import daikinPartnerLogo from "@/public/images/daikin-partner.png"
 
 const whatsappUrl = "https://wa.me/38975727788"
 
