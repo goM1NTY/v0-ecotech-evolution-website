@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
+import { motion, AnimatePresence, type PanInfo } from "framer-motion"
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
 import Image from "next/image"
 
@@ -66,23 +66,105 @@ const projects = [
 export function Projects() {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const projectTabsRef = useRef<HTMLDivElement | null>(null)
+  const mobileImageTrackRef = useRef<HTMLDivElement | null>(null)
+  const [projectTabScroll, setProjectTabScroll] = useState({ left: false, right: false })
 
   const currentProject = projects[currentProjectIndex]
 
   const setProject = (index: number) => {
     setCurrentProjectIndex(index)
     setCurrentImageIndex(0)
+    mobileImageTrackRef.current?.scrollTo({ left: 0, behavior: "auto" })
+  }
+
+  const updateProjectTabScroll = () => {
+    const node = projectTabsRef.current
+    if (!node) return
+
+    const maxScrollLeft = node.scrollWidth - node.clientWidth
+    setProjectTabScroll({
+      left: node.scrollLeft > 4,
+      right: node.scrollLeft < maxScrollLeft - 4,
+    })
+  }
+
+  const scrollProjectTabs = (direction: "left" | "right") => {
+    const node = projectTabsRef.current
+    if (!node) return
+
+    node.scrollBy({
+      left: direction === "right" ? 180 : -180,
+      behavior: "smooth",
+    })
+    window.setTimeout(updateProjectTabScroll, 250)
+  }
+
+  const scrollMobileImageTo = (index: number) => {
+    const node = mobileImageTrackRef.current
+    if (!node) return
+
+    node.scrollTo({
+      left: index * node.clientWidth,
+      behavior: "smooth",
+    })
+  }
+
+  const showImage = (index: number) => {
+    setCurrentImageIndex(index)
+    scrollMobileImageTo(index)
+  }
+
+  const showNextImage = () => {
+    const nextIndex = (currentImageIndex + 1) % currentProject.images.length
+    showImage(nextIndex)
+  }
+
+  const showPrevImage = () => {
+    const prevIndex = (currentImageIndex - 1 + currentProject.images.length) % currentProject.images.length
+    showImage(prevIndex)
   }
 
   const nextImage = (e: React.MouseEvent) => {
     e.stopPropagation()
-    setCurrentImageIndex((prev) => (prev + 1) % currentProject.images.length)
+    showNextImage()
   }
 
   const prevImage = (e: React.MouseEvent) => {
     e.stopPropagation()
-    setCurrentImageIndex((prev) => (prev - 1 + currentProject.images.length) % currentProject.images.length)
+    showPrevImage()
   }
+
+  const handleImageSwipe = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    if (currentProject.images.length <= 1) return
+
+    if (info.offset.x < -50 || info.velocity.x < -500) {
+      showNextImage()
+    }
+
+    if (info.offset.x > 50 || info.velocity.x > 500) {
+      showPrevImage()
+    }
+  }
+
+  const handleMobileImageScroll = () => {
+    const node = mobileImageTrackRef.current
+    if (!node) return
+
+    const nextIndex = Math.round(node.scrollLeft / node.clientWidth)
+    if (nextIndex !== currentImageIndex) {
+      setCurrentImageIndex(nextIndex)
+    }
+  }
+
+  useEffect(() => {
+    window.setTimeout(updateProjectTabScroll, 0)
+    window.addEventListener("resize", updateProjectTabScroll)
+
+    return () => {
+      window.removeEventListener("resize", updateProjectTabScroll)
+    }
+  }, [])
 
   return (
     <section className="py-12 lg:py-24 bg-[#FBFBFD] border-t border-gray-100">
@@ -111,23 +193,49 @@ export function Projects() {
 
         {/* Master Architectural Showcase (Light Theme) */}
         {/* Mobile: Horizontal scrollable tab bar */}
-        <div className="flex lg:hidden overflow-x-auto pb-2 gap-2 mb-6 -mx-1 px-1">
-          {projects.map((project, idx) => {
-            const isActive = idx === currentProjectIndex
-            return (
-              <button
-                key={project.id}
-                onClick={() => setProject(idx)}
-                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
-                  isActive
-                    ? "bg-[#7CB342] border-[#7CB342] text-white"
-                    : "bg-white border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                }`}
-              >
-                {project.title}
-              </button>
-            )
-          })}
+        <div className="relative mb-6 -mx-6 lg:hidden">
+          <div
+            ref={projectTabsRef}
+            onScroll={updateProjectTabScroll}
+            className="flex gap-2 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {projects.map((project, idx) => {
+              const isActive = idx === currentProjectIndex
+              return (
+                <button
+                  key={project.id}
+                  onClick={() => setProject(idx)}
+                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
+                    isActive
+                      ? "bg-[#7CB342] border-[#7CB342] text-white"
+                      : "bg-white border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                  }`}
+                >
+                  {project.title}
+                </button>
+              )
+            })}
+          </div>
+          {projectTabScroll.left && (
+            <button
+              type="button"
+              onClick={() => scrollProjectTabs("left")}
+              aria-label="Previous deployments"
+              className="absolute left-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-gray-700 shadow-md ring-1 ring-gray-200/80 backdrop-blur"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+          )}
+          {projectTabScroll.right && (
+            <button
+              type="button"
+              onClick={() => scrollProjectTabs("right")}
+              aria-label="More deployments"
+              className="absolute right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-gray-700 shadow-md ring-1 ring-gray-200/80 backdrop-blur"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          )}
         </div>
 
         {/* Desktop: Sidebar + Image grid */}
@@ -169,37 +277,62 @@ export function Projects() {
             
             {/* Image Carousel */}
             <div className="relative w-full aspect-[4/3] sm:aspect-video lg:aspect-[16/9] bg-gray-100 rounded-xl overflow-hidden group shadow-lg shadow-gray-200/50 ring-1 ring-inset ring-gray-900/5">
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={`${currentProject.id}-${currentImageIndex}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }} 
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={currentProject.images[currentImageIndex]}
-                    alt={`${currentProject.title} rendering`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 70vw"
-                    className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-[1.02]"
-                  />
-                </motion.div>
-              </AnimatePresence>
+              <div
+                ref={mobileImageTrackRef}
+                onScroll={handleMobileImageScroll}
+                className="flex h-full snap-x snap-mandatory overflow-x-auto scroll-smooth lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {currentProject.images.map((image, idx) => (
+                  <div key={image} className="relative h-full w-full flex-none snap-center">
+                    <Image
+                      src={image}
+                      alt={`${currentProject.title} image ${idx + 1}`}
+                      fill
+                      sizes="100vw"
+                      className="object-cover"
+                      priority={idx === 0}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div className="hidden h-full lg:block">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={`${currentProject.id}-${currentImageIndex}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }} 
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
+                    onDragEnd={handleImageSwipe}
+                    className="absolute inset-0 cursor-grab touch-pan-y active:cursor-grabbing"
+                  >
+                    <Image
+                      src={currentProject.images[currentImageIndex]}
+                      alt={`${currentProject.title} rendering`}
+                      fill
+                      sizes="70vw"
+                      className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-[1.02]"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
 
               {/* Nested Carousel Controls */}
               {currentProject.images.length > 1 && (
                 <>
                   <button
                     onClick={prevImage}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center text-gray-800 bg-white/70 hover:bg-white rounded-full backdrop-blur-md shadow-sm transition-all opacity-0 group-hover:opacity-100 z-20 focus:opacity-100"
+                    className="absolute left-3 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/70 text-gray-800 shadow-sm backdrop-blur-md transition-all hover:bg-white lg:flex lg:opacity-0 lg:group-hover:opacity-100 focus:opacity-100"
                   >
                     <ChevronLeft className="w-5 h-5" strokeWidth={2} />
                   </button>
                   <button
                     onClick={nextImage}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center text-gray-800 bg-white/70 hover:bg-white rounded-full backdrop-blur-md shadow-sm transition-all opacity-0 group-hover:opacity-100 z-20 focus:opacity-100"
+                    className="absolute right-3 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/70 text-gray-800 shadow-sm backdrop-blur-md transition-all hover:bg-white lg:flex lg:opacity-0 lg:group-hover:opacity-100 focus:opacity-100"
                   >
                     <ChevronRight className="w-5 h-5" strokeWidth={2} />
                   </button>
@@ -211,7 +344,7 @@ export function Projects() {
                         key={idx}
                         onClick={(e) => {
                           e.stopPropagation()
-                          setCurrentImageIndex(idx)
+                          showImage(idx)
                         }}
                         className={`h-1.5 rounded-full transition-all duration-300 ${
                           idx === currentImageIndex ? "w-4 bg-white" : "w-1.5 bg-white/50 hover:bg-white/80"
