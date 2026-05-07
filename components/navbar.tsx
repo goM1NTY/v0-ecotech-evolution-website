@@ -16,6 +16,8 @@ const navLinks = [
   { href: "/#contact", label: "Contact" },
 ]
 
+const whatsappUrl = "https://wa.me/38970733433"
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -73,10 +75,12 @@ export function Navbar() {
             ))}
           </div>
           <a
-            href="#contact"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-md px-4 py-2 text-sm font-semibold transition-all duration-300 ease-in-out bg-[#7CB342] text-white hover:bg-[#689f38] shadow-sm hover:shadow-md"
           >
-            Get a Quote
+            Message Us
           </a>
         </div>
 

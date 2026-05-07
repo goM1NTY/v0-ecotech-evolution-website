@@ -90,7 +90,7 @@ export function Hero() {
                 className="rounded-md h-11 sm:h-12 px-5 sm:px-8 text-sm sm:text-base font-semibold border-white text-white hover:bg-white hover:text-black bg-transparent backdrop-blur-sm transition-all"
                 asChild
               >
-                <a href="#contact">Get Free Quote</a>
+                <a href="/equipment">View Products</a>
               </Button>
             </div>
 
