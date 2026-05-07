@@ -20,7 +20,7 @@ export function CTA() {
             viewport={{ once: true }}
             className="scroll-mt-20"
           >
-            <span className="text-sm font-semibold uppercase tracking-wide text-emerald-700">
+            <span className="text-sm font-semibold uppercase tracking-wide text-[#7CB342]">
               Contact Us
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-950 tracking-tight">
@@ -33,15 +33,15 @@ export function CTA() {
             {/* Contact Methods */}
             <div className="mt-10 space-y-4">
               <div className="group flex items-center gap-4 text-slate-950">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md border border-slate-200 bg-white text-emerald-700 shadow-sm transition-colors group-hover:border-emerald-200 group-hover:bg-emerald-50">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md border border-slate-200 bg-white text-[#7CB342] shadow-sm transition-colors group-hover:border-[#7CB342]/30 group-hover:bg-[#7CB342]/10">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-base font-semibold text-slate-500">Call us</p>
                   <div className="flex items-center gap-3">
-                    <a href="tel:+38975727788" className="text-xl font-bold tracking-tight hover:text-emerald-700 transition-colors">+389 75 727 788</a>
+                    <a href="tel:+38975727788" className="text-xl font-bold tracking-tight hover:text-[#7CB342] transition-colors">+389 75 727 788</a>
                     <span className="text-slate-300">|</span>
-                    <a href="tel:+38970733433" className="text-xl font-bold tracking-tight hover:text-emerald-700 transition-colors">+389 70 733 433</a>
+                    <a href="tel:+38970733433" className="text-xl font-bold tracking-tight hover:text-[#7CB342] transition-colors">+389 70 733 433</a>
                   </div>
                 </div>
               </div>
@@ -50,9 +50,9 @@ export function CTA() {
                 href="https://wa.me/38970733433"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 text-slate-950 transition-colors hover:text-emerald-700"
+                className="group flex items-center gap-4 text-slate-950 transition-colors hover:text-[#7CB342]"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-md border border-slate-200 bg-white text-emerald-700 shadow-sm transition-colors group-hover:border-emerald-200 group-hover:bg-emerald-50">
+                <div className="flex h-12 w-12 items-center justify-center rounded-md border border-slate-200 bg-white text-[#7CB342] shadow-sm transition-colors group-hover:border-[#7CB342]/30 group-hover:bg-[#7CB342]/10">
                   <MessageCircle className="w-5 h-5" />
                 </div>
                 <div>
@@ -63,9 +63,9 @@ export function CTA() {
               
               <a
                 href="mailto:ecotechevolution@gmail.com"
-                className="group flex items-center gap-4 text-slate-950 transition-colors hover:text-emerald-700"
+                className="group flex items-center gap-4 text-slate-950 transition-colors hover:text-[#7CB342]"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-md border border-slate-200 bg-white text-emerald-700 shadow-sm transition-colors group-hover:border-emerald-200 group-hover:bg-emerald-50">
+                <div className="flex h-12 w-12 items-center justify-center rounded-md border border-slate-200 bg-white text-[#7CB342] shadow-sm transition-colors group-hover:border-[#7CB342]/30 group-hover:bg-[#7CB342]/10">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
@@ -124,7 +124,7 @@ export function CTA() {
             </div>
             <div className="flex flex-col gap-4 border-t border-slate-200 bg-slate-50 p-5 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md border border-emerald-100 bg-white text-emerald-700">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md border border-[#7CB342]/25 bg-white text-[#7CB342]">
                   <MapPin className="h-5 w-5" />
                 </div>
                 <div>
@@ -136,7 +136,7 @@ export function CTA() {
                 href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-slate-950 px-4 text-sm font-semibold text-white transition-colors hover:bg-emerald-800"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-slate-950 px-4 text-sm font-semibold text-white transition-colors hover:bg-[#689F38]"
               >
                 Open Map
                 <ExternalLink className="h-4 w-4" />
