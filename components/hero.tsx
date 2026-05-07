@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import daikinPartnerLogo from "@/public/images/daikin-partner.png"
 
-const whatsappUrl = "https://wa.me/38975727788"
+const whatsappUrl = "https://wa.me/38970733433"
 
 export function Hero() {
   const [showWhatsAppPrompt, setShowWhatsAppPrompt] = useState(true)

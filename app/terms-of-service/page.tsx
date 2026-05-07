@@ -53,7 +53,7 @@ const sections = [
   {
     title: "Contact",
     body: [
-      "For questions about these Terms, contact EcoTech Evolution at info@ecotech-evolution.mk or +389 70 123 456.",
+      "For questions about these Terms, contact EcoTech Evolution at ecotechevolution@gmail.com or +389 70 123 456.",
       "Address: Marks Engels 31, Struga 6330.",
     ],
   },

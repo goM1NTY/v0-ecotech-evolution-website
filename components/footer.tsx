@@ -98,22 +98,30 @@ export function Footer() {
                     {mapAddress}
                   </a>
                 </li>
-                <li className="flex items-center gap-3">
+                <li className="flex items-start gap-3">
                   <Phone className="w-4 h-4 text-[#7CB342] flex-shrink-0" />
-                  <a
-                    href="tel:+38975727788"
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
-                  >
-                    075 727 788
-                  </a>
+                  <div className="flex flex-col gap-2">
+                    <a
+                      href="tel:+38975727788"
+                      className="text-sm text-gray-400 hover:text-white transition-colors"
+                    >
+                      +389 75 727 788
+                    </a>
+                    <a
+                      href="tel:+38970733433"
+                      className="text-sm text-gray-400 hover:text-white transition-colors"
+                    >
+                      +389 70 733 433
+                    </a>
+                  </div>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-[#7CB342] flex-shrink-0" />
                   <a
-                    href="mailto:info@ecotech-evolution.mk"
+                    href="mailto:ecotechevolution@gmail.com"
                     className="text-sm text-gray-400 hover:text-white transition-colors"
                   >
-                    info@ecotech-evolution.mk
+                    ecotechevolution@gmail.com
                   </a>
                 </li>
               </ul>

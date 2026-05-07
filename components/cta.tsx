@@ -39,15 +39,15 @@ export function CTA() {
                 <div>
                   <p className="text-base font-semibold text-slate-500">Call us</p>
                   <div className="flex items-center gap-3">
-                    <a href="tel:+38975727788" className="text-xl font-bold tracking-tight hover:text-emerald-700 transition-colors">075 727 788</a>
+                    <a href="tel:+38975727788" className="text-xl font-bold tracking-tight hover:text-emerald-700 transition-colors">+389 75 727 788</a>
                     <span className="text-slate-300">|</span>
-                    <a href="tel:+38970733433" className="text-xl font-bold tracking-tight hover:text-emerald-700 transition-colors">070 733 433</a>
+                    <a href="tel:+38970733433" className="text-xl font-bold tracking-tight hover:text-emerald-700 transition-colors">+389 70 733 433</a>
                   </div>
                 </div>
               </div>
               
               <a
-                href="https://wa.me/38975727788"
+                href="https://wa.me/38970733433"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4 text-slate-950 transition-colors hover:text-emerald-700"
@@ -62,7 +62,7 @@ export function CTA() {
               </a>
               
               <a
-                href="mailto:info@ecotech-evolution.mk"
+                href="mailto:ecotechevolution@gmail.com"
                 className="group flex items-center gap-4 text-slate-950 transition-colors hover:text-emerald-700"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-md border border-slate-200 bg-white text-emerald-700 shadow-sm transition-colors group-hover:border-emerald-200 group-hover:bg-emerald-50">
@@ -70,7 +70,7 @@ export function CTA() {
                 </div>
                 <div>
                   <p className="text-base font-semibold text-slate-500">Email</p>
-                  <p className="text-xl font-bold tracking-tight">info@ecotech-evolution.mk</p>
+                  <p className="text-xl font-bold tracking-tight">ecotechevolution@gmail.com</p>
                 </div>
               </a>
             </div>
@@ -93,7 +93,7 @@ export function CTA() {
                 Our team is ready to help you choose the right system for your space. Message us on WhatsApp for a fast response.
               </p>
               <a
-                href="https://wa.me/38975727788"
+                href="https://wa.me/38970733433"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-[#7CB342] hover:bg-[#689F38] px-5 py-2.5 text-sm font-semibold text-white transition-colors shadow-lg shadow-[#7CB342]/20"
