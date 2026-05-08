@@ -36,7 +36,7 @@ const certifications = ["CE Certified", "IEC 61730", "TUV Approved", "IEC 62446"
 
 export function About() {
   return (
-    <section className="py-12 lg:py-32 bg-[#FBFBFD] overflow-hidden">
+    <section className="pt-10 pb-12 lg:pt-20 lg:pb-32 bg-[#FBFBFD] overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Section Header */}

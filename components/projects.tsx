@@ -156,7 +156,7 @@ export function Projects() {
   }, [])
 
   return (
-    <section className="py-12 lg:py-24 bg-[#FBFBFD] border-t border-gray-100">
+    <section className="pt-12 pb-8 lg:pt-24 lg:pb-8 bg-[#FBFBFD] border-t border-gray-100">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Section Header */}
