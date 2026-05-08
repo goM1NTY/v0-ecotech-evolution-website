@@ -11,7 +11,7 @@ const projects = [
     title: "Bonitas Facility",
     location: "Tetovo",
     type: "Industrial Solar",
-    capacity: "120 kW",
+    capacity: "93 MWh",
     description: "High-capacity photovoltaic integration for sustained industrial energy independence.",
     images: [
       "/projects/bonitas/first.jpeg",
@@ -25,7 +25,7 @@ const projects = [
     title: "Eurosteel Plant",
     location: "Veleshta, Struga",
     type: "Industrial Solar",
-    capacity: "250 kW",
+    capacity: "233.6 MWh",
     description: "Large scale industrial PV deployment powering heavy manufacturing lines.",
     images: [
       "/projects/eurosteel/first.jpeg",
@@ -39,7 +39,7 @@ const projects = [
     title: "Guri i Drerit",
     location: "Kalishta, Struga",
     type: "Hospitality Solar",
-    capacity: "80 kW",
+    capacity: "23.3 MWh",
     description: "Hospitality energy integration ensuring grid independence for uninterrupted service.",
     images: [
       "/projects/guri-drerit/first.jpeg",
@@ -53,7 +53,7 @@ const projects = [
     title: "Versus Retail",
     location: "Struga",
     type: "Commercial Solar",
-    capacity: "50 kW",
+    capacity: "47 MWh",
     description: "Commercial solar architecture designed for maximum roof space efficiency.",
     images: [
       "/projects/versus/versus1.jpeg",
@@ -381,7 +381,7 @@ export function Projects() {
                   <div className="h-8 w-px bg-gray-200 hidden sm:block" />
                   <div className="flex items-baseline gap-2">
                     <span className="text-[10px] font-mono tracking-[0.15em] text-gray-400 uppercase">
-                      Output
+                      Avg Yearly Output
                     </span>
                     <span className="text-lg font-bold text-[#7CB342]">
                       {currentProject.capacity}
