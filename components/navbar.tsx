@@ -55,7 +55,7 @@ export function Navbar() {
             height={72} 
             className={`object-contain drop-shadow-sm transition-all duration-500 ease-in-out ${isSolid ? 'w-12 h-12' : 'w-12 h-12 sm:w-14 sm:h-14'}`} 
           />
-          <span className={`font-bold tracking-tight transition-all duration-500 ease-in-out ${isSolid ? 'text-sm sm:text-base text-gray-900' : 'text-sm sm:text-lg drop-shadow-md text-white'}`}>
+          <span className={`font-bold tracking-tight transition-all duration-500 ease-in-out ${isSolid ? 'text-base text-gray-900' : 'text-base sm:text-lg drop-shadow-md text-white'}`}>
             EcoTech Evolution
           </span>
         </Link>
