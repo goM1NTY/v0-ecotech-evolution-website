@@ -47,7 +47,7 @@ export function Navbar() {
     >
       <nav className={`relative flex w-full items-center justify-between pl-2 pr-2 lg:pl-3 lg:pr-3 transition-all duration-500 ease-in-out ${isSolid ? 'h-16' : 'h-24'}`}>
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link href="/" className="flex min-w-0 items-center gap-2">
           <Image 
             src={logoImage}
             alt="EcoTech Evolution Logo" 
@@ -55,9 +55,8 @@ export function Navbar() {
             height={72} 
             className={`object-contain drop-shadow-sm transition-all duration-500 ease-in-out ${isSolid ? 'w-12 h-12' : 'w-12 h-12 sm:w-14 sm:h-14'}`} 
           />
-          <span className={`font-bold tracking-tight transition-all duration-500 ease-in-out ${isSolid ? 'text-base text-gray-900' : 'text-base sm:text-lg drop-shadow-md text-white'}`}>
-            EcoTech
-            <span className="hidden sm:inline"> Evolution</span>
+          <span className={`font-bold tracking-tight transition-all duration-500 ease-in-out ${isSolid ? 'text-sm sm:text-base text-gray-900' : 'text-sm sm:text-lg drop-shadow-md text-white'}`}>
+            EcoTech Evolution
           </span>
         </Link>
 
